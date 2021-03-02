@@ -1,0 +1,127 @@
+\documentclass[letter]{article}
+\renewcommand{\baselinestretch}{1.25}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pythonhighlight}
+
+\allowdisplaybreaks
+
+%opening
+\title{MECH 6327 - Homework 2}
+\author{Jonas Wagner}
+\date{2021, February 22}
+
+\begin{document}
+
+\maketitle
+
+
+\section{Problem Set 1: Convex Sets}
+
+\subsection{Problem 2.5}
+\textbf{Problem:}\\
+What is the distance between two parallel hyperplanes: $\{x \in \real^n | a^T x = b_1\}$ and $\{x \in \real^n | a^T x = b_2\}$?\\
+
+\noindent
+\textbf{Solution:}\\
+Under the assumption that $a\in \real^n$ and $b_1,b_2 \in \real$, the quantity $a^T x_0$ represents the component of $x_0$ in the normal direction. Similarly, the quantities $b_1$ and $b_2$ represent the euclidean distance of the hyperplane from the origin (in the normal direction). Since the hyperplanes are parrellel, the distance between them is the difference between their offsets:
+\begin{equation}
+	\text{Distance between hyperplanes: } b_1 - b_2
+\end{equation}
+
+
+\subsection{Problem 2.7}
+\textbf{Problem:}\\
+\textit{Voronoi description of halfspace.} Let $a$ and $b$ be distinct points in $\real^n$. Show that the set of all points that are closer to $a$ than $b$ via the euclidean norm is a halfspace. Describe it explicitly as an inequality and draw a picture.
+
+\noindent
+\textbf{Solution:}\\
+The set of all points closer to $a$ then $b$ can be defined as:
+\begin{equation}
+	\{x \in \real^n \ | \ \norm{x-a}_2 \leq \norm{x-b}_2\}
+\end{equation}
+
+The boundary defining this halfspace will be a plane defined by the normal vector $c$ representing the distance between $a$ and $b$, and the offset coefficient $d$ describing intersection of the plane through the half-way point between $a$ and $b$. The quantities $c$ and $d$ can therefore be defined by:
+\begin{equation}
+	\begin{aligned}
+		c &= b - a\\
+		d &= \frac{c^T a + c^T b}{2}\\
+		  &= \frac{1}{2} c^T (a+b)
+	\end{aligned}
+\end{equation}
+
+The halfspace, that is equivenlent to $x$, can be described by the following:
+\begin{equation}
+	\{x\in \real^n \ | \ c^T x \leq d\}
+\end{equation}
+
+This can be visualized in two dimensions 
+
+
+\subsection{Problem 2.12}
+\textbf{Problem:}\\
+Multiple choice problem from book....
+
+
+\textbf{Solution:}\\
+
+
+
+\subsection{Problem 2.28}
+\textbf{Problem:}\\
+
+
+
+\textbf{Solution:}\\
+
+
+
+
+\subsection{Problem 2.33}
+\textbf{Problem:}\\
+
+
+
+\textbf{Solution:}\\
+
+
+
+
+
+\section{Problem Set 2: Convex Functions}
+
+\subsection{Problem 3.6}
+\textbf{Problem:}\\
+
+
+
+\textbf{Solution:}\\
+
+
+\subsection{Problem 3.16}
+\textbf{Problem:}\\
+
+
+
+\textbf{Solution:}\\
+
+
+\subsection{Problem 3.18a}
+\textbf{Problem:}\\
+
+
+
+\textbf{Solution:}\\
+
+
+\subsection{Problem 3.22}
+\textbf{Problem:}\\
+
+
+
+\textbf{Solution:}\\
+
+\end{document}
