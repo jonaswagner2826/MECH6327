@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.19)  1 MAR 2021 23:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2020.11.19)  2 MAR 2021 23:07
 entering extended mode
 **./MECH6327-HW2.tex
 (MECH6327-HW2.tex
@@ -500,94 +500,107 @@ Underfull \hbox (badness 10000) in paragraph at lines 25--27
 [1
 
 {C:/Users/Jonas/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 67--68
+<fig/pblm2_7.png, id=15, 433.62pt x 289.08pt>
+File: fig/pblm2_7.png Graphic file (type png)
+<use fig/pblm2_7.png>
+Package pdftex.def Info: fig/pblm2_7.png  used on input line 65.
+(pdftex.def)             Requested size: 328.82707pt x 219.22668pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--75
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
-
- []
-
-
+[2 <./fig/pblm2_7.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 99--100
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 113--115
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--104
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 107--108
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 115--116
+Underfull \hbox (badness 10000) in paragraph at lines 190--191
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
 
  []
 
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
+
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
-[3] (MECH6327-HW2.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 202--203
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 206--207
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 210--211
+
+ []
+
+[5] (MECH6327-HW2.aux) ) 
 Here is how much of TeX's memory you used:
- 15012 strings out of 492915
- 267408 string characters out of 3124934
- 318064 words of memory out of 3000000
- 18853 multiletter control sequences out of 15000+200000
- 538067 words of font info for 44 fonts, out of 3000000 for 9000
+ 15024 strings out of 492915
+ 267557 string characters out of 3124934
+ 322072 words of memory out of 3000000
+ 18860 multiletter control sequences out of 15000+200000
+ 538686 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,7n,65p,444b,317s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,15n,65p,562b,317s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Jonas/AppData/Local/Programs/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Jonas/AppData/Local
-/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Jonas/
-AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/
-Users/Jonas/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cm
-r10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr12.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
-e1/public/amsfonts/cm/cmr17.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Jonas/AppData/Local/Progra
-ms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jonas/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on MECH6327-HW2.pdf (3 pages, 116145 bytes).
+/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Jonas/
+AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:
+/Users/Jonas/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
+mmi7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/a
+msfonts/cm/cmr10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmr12.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/Jonas/AppData/Local/Prog
+rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/Jonas/AppData
+/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/
+Jonas/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.p
+fb>
+Output written on MECH6327-HW2.pdf (5 pages, 150358 bytes).
 PDF statistics:
- 52 PDF objects out of 1000 (max. 8388607)
+ 65 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
