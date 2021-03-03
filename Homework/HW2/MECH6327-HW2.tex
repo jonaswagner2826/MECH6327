@@ -6,13 +6,14 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{pythonhighlight}
+\usepackage{hyperref}
 
 \allowdisplaybreaks
 
 %opening
 \title{MECH 6327 - Homework 2}
 \author{Jonas Wagner}
-\date{2021, February 22}
+\date{2021, March 3}
 
 \begin{document}
 
@@ -92,7 +93,7 @@ A set of points closer to a given set than another given set is defined as $$\{x
 
 
 \subsubsection{(f) - Set of the sum being within a convex set}
-The set defined as $$\{x \ | \ x + S_2 \subset S_1\}$$ with $S_1$ being convex \textbf{is }\\
+The set defined as $$\{x \ | \ x + S_2 \subseteq S_1\}$$ with $S_1$ being convex \textbf{is }\\
 
 ??????????????????????????????????????\\
 
@@ -139,7 +140,7 @@ For $n=3$ the inequalities can be found by ensuring the leading principle minors
 		&= x_1\\
 		m_2 &= \det \mqty[x_1 & x_2 \\ x_2 & x_4] \\
 		&= x_1 x_4 - x_2^2\\
-		m_3 &= \det \mqty[x_1 & x_2 & x_3\\ x_2 & x_4 & x_5\\ x_3 & x_5 & x_6] \\
+		m_3 &= \det \mqty[x_1 & x_2 & x_3\\ x_2 & x_4 & x_5\\ x_3 & x_5 & x_6]\\
 		&= x_1 (x_1 x_4 - x_2^2) - x_2 (x_2 x_6 - x_3 x_5) + x_3 (x_2 x_5 - x_3 x_4)\\
 		&= x_1^2 x_4 - x_1 x_2^2 - x_2^2 x_6 + x_2 x_3 x_5 + x_2 x_3 x_5 - x_3^2 x_4
 	\end{aligned}
@@ -152,27 +153,61 @@ These definitions of the minors can be then be used to construct inequalities su
 		 x_1 x_2^2 + x_2^2 x_6 + x_3^2 x_4 \geq x_1^2 x_4 + 2 x_2 x_3 x_5}
 \end{equation}
 
-
-%For $n=2$ the inequalities can be found by first calcualting the eigenvalues:
-%\begin{align}
-%	X &= \mqty[x_1 & x_2\\ x_2 & x_3]\\
-%	\intertext{The charectoristic polynomial is then given as:}
-%	\det(sI-X) 	&= (s-x_1)(s-x_3) - x_2^2\\
-%				&= s^2 - (x_1 + x_3)s + x_1 x_3 - x_2^2\\
-%	\intertext{The roors of the charectoristic polynomial represent the eigenvalues:}
-%	\lambda_{1,2} 	&= \cfrac{(x_1 + x_3) \pm \sqrt{(x_1 + x_3)^2 - 4 (1)(x_1 x_3 - x_2^2)}}{2}\\
-%					&= \cfrac{x_1 + x_3 \pm \sqrt{x_1^2 + x_1 x_3 + x_3^2 - 4 x_1 x_3 + 4 x_2^2}}{2}
-%\end{align}
-
-
 \subsection{Problem 2.33}
+The monotone non-negative cone is defined as all the nonnegative vectors with components sorted in non-increasing order:
+\begin{equation}
+	K_{m+} = \{x \in \real^n \ | \ x_1 \geq x_2 \geq \cdots \geq x_n \geq n\}
+\end{equation}
+
+\subsubsection{Part a}
 \textbf{Problem:}\\
+Show that $K_{m+}$ is a proper cone.
 
-
-
+\noindent
 \textbf{Solution:}\\
+A set, $C \subseteq \real^n$, is considered a cone if
+\begin{equation}
+	\theta x \in C \ \forall x \in C \text{ and } \theta \geq 0
+\end{equation}
+
+It can be easily seen that the set $K_{m+}$ satisfies this condition as scaling each element of the matrix $x \in K_{m+}$ will equally be scaled by the same amount and the conditions of non-increasing order will still apply. This guarantees that $K_{m+}$ is in fact a cone.\\
+
+To ensure convexity, the definition of convexity and of a cone can be incorporated into the following test:\\
+The set $C \subseteq \real^n$ is a convex cone iff
+\begin{equation}
+	\theta_1 x_1 + \theta_2 x_2 \in C \ \forall x_1,x_2 \in C, \theta_1, \theta_2 \geq 0
+\end{equation}
+
+It is also clear that $K_{m+}$ will satisfy as if each element element of one of the matrices is scaled it maintains the nonincreasing order. The same is true for summing two $K_{m+}$ matrices as the nonincreasing order will be maintained.\\
+
+It is also known by definition
+***************************************
+ask about this....
 
 
+\subsubsection{Part b}
+\textbf{Problem:}\\
+Find the dual cone, $K_{m+}^*$.
+
+\noindent
+\textbf{Solution:}\\
+A dual cone for $K$ is defined as:
+\begin{equation}
+	K^* = \{y \in \real^n \ | \ x^Ty \geq x^T y \geq 0 \ \forall x \in K\}
+\end{equation}
+
+
+
+
+?????????????????????????????????????????????????????????????????
+
+It is known that the following is equivalent:
+\begin{equation}
+	\begin{aligned}
+		\sum_{i=1}^{n} x_i y_i &= (x_1 - x_2) y_1 + (x_2 - x_3) (y_1 + y_2) + \cdots \\
+						&= + (x_{n-1} - x_n) (y_1 + \cdots + y_{n-1}) + x_n (y_1 + \cdots + y_n)
+	\end{aligned}
+\end{equation}
 
 
 
@@ -180,34 +215,149 @@ These definitions of the minors can be then be used to construct inequalities su
 
 \subsection{Problem 3.6}
 \textbf{Problem:}\\
+What is the epigraph for the following convex functions?
 
-
-
+\noindent
 \textbf{Solution:}\\
+The epigraph is defined as 
+\begin{equation}
+	\textbf{epi} f = \{(x,t) \ | \ x \in \textbf{dom} f, f(x) \leq t\}
+\end{equation}
+where $\textbf{epi} f \subset R^{n+1}$. This is equivalent to saying the space 'above' the function.
 
+\subsubsection{(a) - Epigraph of a halfspace}
+The epigraph of a halfspace in $n$ dimensions is a halfspace in $n+1$ dimensions.
+
+\subsubsection{(b) - Epigraph of a convex cone}
+The epigraph of a convex cone is another convex cone? mabye a riangular prism type thing...
+
+\subsubsection{(c) - Epigraph of a polyhedron}
+The epigraph of a polyhedron is another polyhedron. similar to convex cone... it isn't originally bounded
 
 \subsection{Problem 3.16}
 \textbf{Problem:}\\
+Determine if the following functions are convex, concave, quasiconvex, or quasiconcave.
 
-
-
+\noindent
 \textbf{Solution:}\\
+\subsubsection{(a) - $e^x - 1$}
+Let $$f(x) = e^x - 1$$ on $\real$.\\
+$f(x)$ \textbf{is convex} and can be proven in multiple ways. For instance, visualizing the epigraph of the function, it is clear that a convex set is produced. Additionally, $f(x)$ can be constructed by putting the convex function $e^x$ through the convex affine function $x - 1$.
+
+\subsubsection{(b) - $x_1 x_2$}
+Let $$f(x_1,x_2) = x_1 x_2$$ over the domain $\real_{++}^2$.\\
+This function \textbf{is convex} and can be demonstrated using the definition:
+\begin{align}
+	f(\theta x + (1-\theta)y) &= \theta f(x) + (1-\theta) f(y)\\
+	 (\theta x_1 + (1-\theta) y_1) (\theta x_2 + (1-\theta) y_2)&= \theta x_1 x_2 + (1- \theta) y_1 y_2\nonumber\\
+	\theta^2 x_1 x_2 + \theta(1-\theta)y_1 x_2 + \theta (1-\theta) x_1 y_2 + (1-\theta)^2 y_1 y_2 &= \theta x_1 x_2 + (1- \theta) y_1 y_2\nonumber\\
+	\theta^2 x_1 x_2 + (\theta-\theta^2) (x_1 y_2 + x_2 y_1) + (1- 2 \theta + \theta^2) y_1 y_2 &= \theta x_1 x_2 + (1- \theta) y_1 y_2
+\end{align}
+If we analyze each set of terms it not explicitly clear by the result, but within the domain $\real_{++}^2$ the equality holds true.\\
+--------------------- add plot...
+
+\subsubsection{(c) - $1/(x_1 x_2)$}
+Let $$f(x_1,x_2) = 1/(x_1 x_2)$$ be defined over the domain $R_{++}^2$.
+
+
+
+
+
+
+----------------------------------------
+
+
+\subsubsection{(d) - $x_1/x_2$}
+Let $$f(x_1,x_2) = x_1/x_2$$ be defined over the domain $R_{++}^2$.
+
+
+
+
+----------------------------------------
+
+\subsection{(e) - $x_1^2 / x_2$}
+Let $$f(x_1,x_2) = x_1^2 / x_2$$ be defined over the domain $R \cross R_{+}$.
+
+
+
+
+
+----------------------------------------
+
+\subsection{(f) - $x_1^\alpha x_2^{1-\alpha}$}
+Let $$f(x_1,x_2) = x_1^\alpha x_2^{1-\alpha}$$ with $0 \leq \alpha 1$ be defined over the domain $\real_{++}^2$.\\
+
+
+
+
+----------------------------------------
+
+
+
+
 
 
 \subsection{Problem 3.18a}
 \textbf{Problem:}\\
+Using the proof of concavity of the log-determinant function to show that $$f(X) = \trace(X^{-1})$$ is convex over the domain $S_{++}^n$.\\
 
-
-
+\noindent
 \textbf{Solution:}\\
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \subsection{Problem 3.22}
 \textbf{Problem:}\\
+Use various composition rules to show that the following functions are convex.
 
-
-
+\noindent
 \textbf{Solution:}\\
+\subsubsection{(a) - double log functions}
+Let $$f(x) = -\log(-\log(\sum_{i=1}^m e^{a_i^T x + b_i}))$$ be defined over the domain $\{x \ | \ \sum_{i=1}^m e^{a_i^T x + b_i} < 1\}$.\\
+It is known that $$\log(\sum_{i=1}^{n} e^{y_i})$$ is convex. Since all compositions of convex functions with affine functions are also convex, it can be said that $$\sum_{i=1}^m e^{a_i^T x + b_i}$$ is also convex.\\
+Additionally, it is known that the $\log()$ function is concave, but when the sign changes it becomes convex, thus the composition of $-g(-g(h(x)))$ is convex for the concave function $g(x) = \log(x)$.\\
+Therefore, the function $f(x)$ is convex.
+
+\subsubsection{(b) - square root of some product sum}
+Let $$f(x,u,v) = - \sqrt{uv - x^T x}$$ be defined over the domain $\{(x,u,v) \ | \ uv > x^T x, u, v > 0\}$.\\
+It is known that $g(x) = x^x / u$ is convex for $u>0$ and that $h(x)-\sqrt{x_1 x_2}$ is convex on $\real_{++}^2$.\\
+The function $f(x,u,v)$ can be manipulated as follows:
+\begin{align*}
+	f(x,u,v) 	&= - \sqrt{uv - x^T x}\\
+				&= - \sqrt{u \qty(v -\cfrac{x^T x}{u})}
+\end{align*}
+From what we know about the underling functions, it can be said that the convex function $g(x)$ is summed with $v$ (a convex combination) and then used as an input to the convex function $h(x)$, resulting in an overall convex function.
+
+\subsubsection{(c) - log of some product sum}
+Let $$f(x,u,v) = - \log(uv - x^T x)$$ be defined over the domain $\{(x,u,v) \ | \ uv > x^T x, u, v > 0\}$.\\
+It is known that $g(x) = x^x / u$ is convex for $u>0$ as well as that the $h(x) = \log(x)$ function is concave.\\
+Performing the same manipulation as in the previous problem, $f(x,u,v)$ can be written as: $$f(x,u,v) = -\log(u \qty(v - \cfrac{x^Tx}{u}))$$
+From this it can be derived that the convex function $g(x)$ is summed with $v$ (a convex combination) and then used as an input to the concave function $h(x)$ but is then negated to result in an overall convex function.
+
+
+\subsubsection{(d) - complicated root of a powered sum and norm}
+Let $$ f(x,t) = -\qty(t^p - \norm{x}_p^p)^{1/p}$$ be defined with $p>1$ over the domain $\{(x,t) \ | \ t \geq \norm{x}_p\}$.\\
+It is known that $g(x,u) = \norm{x}_p^p / u^{p-1}$ is convex for $u >0$ and that $h(x,y) = -x^{1/p} y^{1 - 1/p}$ is convex over $\real_{++}^2$.
+
+??????????????????????????????????????????????????
+
+
+\subsubsection{(e) - complicated log of a powered sum and norm}
+Let $$ f(x,t) = - \log(t^p - \norm{x}_p^p)$$ with $p >1$ be defined over the domain $\{(x,t) \ | \ t \geq \norm{x}_p\}$.\\
+It is known that $g(x,u) = \norm{x}_p^p / u^{p-1}$ is convex for $u > 0$.
+
 
 
 \end{document}
