@@ -97,9 +97,7 @@ A set of points closer to a given set than another given set is defined as $$\{x
 
 
 \subsubsection{(f) - Set of the sum being within a convex set}
-The set defined as $$\{x \ | \ x + S_2 \subseteq S_1\}$$ with $S_1$ being convex \textbf{is }\\
-
-??????????????????????????????????????\\
+The set defined as $$\{x \ | \ x + S_2 \subseteq S_1\}$$ with $S_1$ being convex \textbf{is not complex} in general. This is because we do not know enough information about $S_2$ to conclude that $x$ is conncex purely due to the relationship with the convex set $S_1$.\\
 
 \subsubsection{(g) - Set with weighted distances to two points}
 The set of all points that is closer to $a$ then $b$ by at least a factor of $\theta$, defined as $$\{x \in \real^n \ | \ \norm{x-a}_2 \leq \theta \norm{x-b}_2\}$$ with $a \neq b$ and $0 \leq \theta \leq 1$ \textbf{is convex.} This is know because, as proven in a previous problem, a hyperplane is formed for a similarity stated problem which itself is convex. When the distance to $a$ must be less then a portion of the distance to $b$ it will cause the psudo-hyperplane to curve inwards and untimely remain convex.
@@ -175,20 +173,18 @@ A set, $C \subseteq \real^n$, is considered a cone if
 \end{equation}
 
 It can be easily seen that the set $K_{m+}$ satisfies this condition as scaling each element of the matrix $x \in K_{m+}$ will equally be scaled by the same amount and the conditions of non-increasing order will still apply. This guarantees that $K_{m+}$ is in fact a cone.\\
-
 To ensure convexity, the definition of convexity and of a cone can be incorporated into the following test:\\
 The set $C \subseteq \real^n$ is a convex cone iff
 \begin{equation}
 	\theta_1 x_1 + \theta_2 x_2 \in C \ \forall x_1,x_2 \in C, \theta_1, \theta_2 \geq 0
 \end{equation}
-
 It is also clear that $K_{m+}$ will satisfy as if each element element of one of the matrices is scaled it maintains the nonincreasing order. The same is true for summing two $K_{m+}$ matrices as the nonincreasing order will be maintained.\\
+It is also clear that the cone is closed because the complimentary set $K_{m+}'$ is clearly open.\\
+Similarily, $K_{m+}$ is solid because its definition includes all all of the subspace above the cone's boundary.\\
+The cone is also known to be pointed because the definition defines that all of the vectors contained within the set are nonnegative. It is therefore only ever possible for elements to be in the positive sector (quadrant/octant/etc.). This means the cone cannot contain a line.\\
+We can finish stating that $K_{m+}$ is a proper cone because it is a cone, convex, closed, solid, and pointed.
 
-It is also known by definition
-***************************************
-ask about this....
-
-
+\newpage
 \subsubsection{Part b}
 \textbf{Problem:}\\
 Find the dual cone, $K_{m+}^*$.
@@ -197,14 +193,9 @@ Find the dual cone, $K_{m+}^*$.
 \textbf{Solution:}\\
 A dual cone for $K$ is defined as:
 \begin{equation}
-	K^* = \{y \in \real^n \ | \ x^Ty \geq x^T y \geq 0 \ \forall x \in K\}
+	K^* = \{y \in \real^n \ | \ x^ Ty \geq 0 \ \forall x \in K\}
 \end{equation}
-
-
-
-
-?????????????????????????????????????????????????????????????????
-
+The left side of the inequality that defines the dual cone can also be written in summation form as: $$x^T y = \sum_{i=1}^{n} x_i y_i \geq 0$$
 It is known that the following is equivalent:
 \begin{equation}
 	\begin{aligned}
@@ -212,14 +203,20 @@ It is known that the following is equivalent:
 						&= + (x_{n-1} - x_n) (y_1 + \cdots + y_{n-1}) + x_n (y_1 + \cdots + y_n)
 	\end{aligned}
 \end{equation}
+By definition, $x_1 \geq x_2 \geq \cdots \geq x_n \geq n$, thus it can be said that each $(x_i - x_j)$ term in the expanded form is positive. In order for the inequality to always hold true, each $(y_1 + \dots + y_i)$, must be positive as well. This can be achieved by defining that the elements of y are never decreasing.\\
+Thus, the dual cone of $K_{k+}$ can be defined as:
+\begin{equation}
+	K_{m+}^{*} = K_{m-} = \{x \in \real_{+}^n \ | \ x_1 \leq x_2 \leq \dots \leq x_n\} 
+\end{equation}
 
 
-
+\newpage
 \section{Problem Set 2: Convex Functions}
 
 \subsection{Problem 3.6}
+(Note to self... remember to remove this time: Proofs don't really seem required... pretty simple question)\\
 \textbf{Problem:}\\
-What is the epigraph for the following convex functions?
+What is the epigraph for the following convex functions?\\
 
 \noindent
 \textbf{Solution:}\\
@@ -233,11 +230,12 @@ where $\textbf{epi} f \subset R^{n+1}$. This is equivalent to saying the space '
 The epigraph of a halfspace in $n$ dimensions is a halfspace in $n+1$ dimensions.
 
 \subsubsection{(b) - Epigraph of a convex cone}
-The epigraph of a convex cone is another convex cone? mabye a riangular prism type thing...
+The epigraph of a convex cone is another convex cone of in a higher dimension. (It might be possible to generalize it to a triangular slab type thing)
 
 \subsubsection{(c) - Epigraph of a polyhedron}
-The epigraph of a polyhedron is another polyhedron. similar to convex cone... it isn't originally bounded
+The epigraph of a polyhedron is another polyhedron.
 
+\newpage
 \subsection{Problem 3.16}
 \textbf{Problem:}\\
 Determine if the following functions are convex, concave, quasiconvex, or quasiconcave.
@@ -257,71 +255,86 @@ This function \textbf{is convex} and can be demonstrated using the definition:
 	\theta^2 x_1 x_2 + \theta(1-\theta)y_1 x_2 + \theta (1-\theta) x_1 y_2 + (1-\theta)^2 y_1 y_2 &= \theta x_1 x_2 + (1- \theta) y_1 y_2\nonumber\\
 	\theta^2 x_1 x_2 + (\theta-\theta^2) (x_1 y_2 + x_2 y_1) + (1- 2 \theta + \theta^2) y_1 y_2 &= \theta x_1 x_2 + (1- \theta) y_1 y_2
 \end{align}
-If we analyze each set of terms it not explicitly clear by the result, but within the domain $\real_{++}^2$ the equality holds true.\\
---------------------- add plot...
+If we analyze each set of terms it not explicitly clear by the result, but within the domain $\real_{++}^2$ the equality holds true.
 
 \subsubsection{(c) - $1/(x_1 x_2)$}
-Let $$f(x_1,x_2) = 1/(x_1 x_2)$$ be defined over the domain $R_{++}^2$.
+Let $$f(x_1,x_2) = 1/(x_1 x_2)$$ be defined over the domain $R_{++}^2$.\\
 
-
-
-
-
-
-----------------------------------------
-
+This function \textbf{is convex}.
 
 \subsubsection{(d) - $x_1/x_2$}
-Let $$f(x_1,x_2) = x_1/x_2$$ be defined over the domain $R_{++}^2$.
-
-
-
-
-----------------------------------------
+Let $$f(x_1,x_2) = x_1/x_2$$ be defined over the domain $R_{++}^2$.\\
+This function \textbf{is convex}.
 
 \subsection{(e) - $x_1^2 / x_2$}
 Let $$f(x_1,x_2) = x_1^2 / x_2$$ be defined over the domain $R \cross R_{+}$.
+This function \textbf{is convex}.
 
-
-
-
-
-----------------------------------------
 
 \subsection{(f) - $x_1^\alpha x_2^{1-\alpha}$}
 Let $$f(x_1,x_2) = x_1^\alpha x_2^{1-\alpha}$$ with $0 \leq \alpha 1$ be defined over the domain $\real_{++}^2$.\\
+This function \textbf{is not convex}.
 
 
-
-
-----------------------------------------
-
-
-
-
-
-
+\newpage
 \subsection{Problem 3.18a}
 \textbf{Problem:}\\
 Using the proof of concavity of the log-determinant function to show that $$f(X) = \trace(X^{-1})$$ is convex over the domain $S_{++}^n$.\\
 
 \noindent
 \textbf{Solution:}\\
+A proof of the concavity for the $$f(X) = \log \det X$$ is given as follows:\\
+Given an arbritrary line, $X = Z + t V$, with $Z, V \in S^n$, the function $$g(t) = f(Z + t V)$$ can be defined within $\{x \ | \ Z + t V \succ 0\}$. It can then be assumed (without loss of generalizty) that $t = 0$ is in the interval (so that $Z \succ 0$ is defined). This then allows the following:
+\begin{align}
+	g(t) &= \log \det(Z+tV)\\
+		 &= \log \det(Z^{1/2} (I + t Z^{-1/2}V Z^{-1/2})Z^{1/2})\\
+		 &= \sum_{i=1}^n \log(1 + t \lambda_i) + \log \det Z
+\end{align}
+with $\lambda_1, \dots, \lambda_n$ being the eigenvalues of $Z^{-1/2} V Z^{-1/2}$.\\
+This allows for the first and second derivatives to be computed as:
+\begin{align}
+	g'(t) &= \sum_{i=1}^n \cfrac{\lambda_i}{1 + t \lambda_i}\\
+	g''(t) &= -\sum_{i=1}^n \cfrac{\lambda_i^2}{(1 + t \lambda_i)^2}
+\end{align}
+Since $g''(t) \leq 0$, it can be concluded that $f$ is concave.\\
+
+This proof can then be applied to the trace(X{-1}) is also concave.\\
+First, Let
+\begin{equation}
+	f(X) = \trace(X^{-1})
+\end{equation}
+be defined on the domain $\mathbf{S}_{++}^n$.\\
+An arbritrary line can then be defined as
+\begin{equation}
+	g(t) = f(Z + tV)
+\end{equation}
+over the domain $\{x \ | \ Z + t V \succ 0\}$.
+It can then be assumed (without loss of generality) that $t = 0$ is in the interval (so that $Z \succ 0$ is defined). This then allows the following:
+\begin{align}
+	g(t) &= \trace\qty(\qty(Z+tV)^{-1})\\
+	&= \trace\qty(\qty(Z^{1/2} (I + t Z^{-1/2}V Z^{-1/2})Z^{1/2})^{-1})\\
+	\intertext{from the fact that $(ABC)^{-1} = C^{-1}B^{-1}A^{-1}$, this can be manipulated to be}
+	&= \trace\qty(Z^{-1/2} \qty(I + t Z^{-1/2}V Z^{-1/2})^{-1}Z^{-1/2})\\
+	\intertext{since $\trace(ABC) = \trace(CAB)$,}
+	&= \trace\qty(Z^{-1/2} Z^{-1/2} \qty(I + t Z^{-1/2} V Z^{-1/2})^{-1})\\
+	\intertext{by taking the eigenfactor decomposition of $Z^{-1/2} V Z^{-1/2} = Q \Lambda Q^{-1}$, this can be rewritten as:}
+	&= \trace\qty(Z^{-1} \qty(I + t Q \Lambda Q^{-1})^{-1})\\
+	&= \trace\qty(Z^{-1} \qty(Q \qty( I + t \Lambda )Q^{-1})^{-1})\\
+	&= \trace\qty(Z^{-1} Q \qty( I + t \Lambda)^{-1}Q^{-1})\\
+	\intertext{since $\trace(ABC) = \trace(CAB)$,}
+	&= \trace\qty(Q Z^{-1} Q^{-1}\qty( I + t \Lambda)^{-1})\\
+	\intertext{By the definition of the trace, we can rewite this as}
+	&= \sum_{i=1}^n \qty(Q^T Z^{-1} Q)_{ii} \qty(1 + t \lambda_i)^{-1}
+\end{align}
+This allows for the first and second derivatives to be computed as:
+\begin{align}
+	g'(t) &= -\sum_{i=1}^n \qty(Q^T Z^{-1} Q)_{ii} \cfrac{\lambda_i}{\qty(1 + t \lambda_i)^{-2}}\\
+	g''(t) &= 2\sum_{i=1}^n \qty(Q^T Z^{-1} Q)_{ii} \cfrac{\lambda_i^2}{\qty(1 + t \lambda_i)^{-3}}
+\end{align}
+Since $g''(t) \leq 0$, it can be concluded that $f$ is concave.\\
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+\newpage
 \subsection{Problem 3.22}
 \textbf{Problem:}\\
 Use various composition rules to show that the following functions are convex.
@@ -344,6 +357,7 @@ The function $f(x,u,v)$ can be manipulated as follows:
 \end{align*}
 From what we know about the underling functions, it can be said that the convex function $g(x)$ is summed with $v$ (a convex combination) and then used as an input to the convex function $h(x)$, resulting in an overall convex function.
 
+\newpage
 \subsubsection{(c) - log of some product sum}
 Let $$f(x,u,v) = - \log(uv - x^T x)$$ be defined over the domain $\{(x,u,v) \ | \ uv > x^T x, u, v > 0\}$.\\
 It is known that $g(x) = x^x / u$ is convex for $u>0$ as well as that the $h(x) = \log(x)$ function is concave.\\
@@ -353,15 +367,25 @@ From this it can be derived that the convex function $g(x)$ is summed with $v$ (
 
 \subsubsection{(d) - complicated root of a powered sum and norm}
 Let $$ f(x,t) = -\qty(t^p - \norm{x}_p^p)^{1/p}$$ be defined with $p>1$ over the domain $\{(x,t) \ | \ t \geq \norm{x}_p\}$.\\
-It is known that $g(x,u) = \norm{x}_p^p / u^{p-1}$ is convex for $u >0$ and that $h(x,y) = -x^{1/p} y^{1 - 1/p}$ is convex over $\real_{++}^2$.
+It is known that $g(x,u) = \norm{x}_p^p / u^{p-1}$ is convex for $u >0$ and that $h(x,y) = -x^{1/p} y^{1 - 1/p}$ is convex over $\real_{++}^2$.\\
+$f(x,t)$ can be manipulated as follows:
+\begin{align}
+	f(x,t)	&= -\qty(t^p - \norm{x}_p^p)^{1/p}\\
+			&= -\qty(t^{p-1}\qty(t - \cfrac{\norm{x}_p^p}{t^{p-1}}))^{1/p}\\
+			&= -t^{1 - 1/p}\qty(t - \cfrac{\norm{x}_p^p}{t^{p-1}})^{1/p}\\
+\end{align}
+From this it is clear that the known convex function $g(x,t)$ is put through a weighted sum (which over the domain is never negative) and then is composed with the known convex function $h(x,t)$. This means that the original function $f(x,t)$ is a convex function.
 
-??????????????????????????????????????????????????
-
-
+\newpage
 \subsubsection{(e) - complicated log of a powered sum and norm}
 Let $$ f(x,t) = - \log(t^p - \norm{x}_p^p)$$ with $p >1$ be defined over the domain $\{(x,t) \ | \ t \geq \norm{x}_p\}$.\\
-It is known that $g(x,u) = \norm{x}_p^p / u^{p-1}$ is convex for $u > 0$.
-
-
+It is known that $g(x,u) = \norm{x}_p^p / u^{p-1}$ is convex for $u > 0$ and that (with the negative sign) the function $h(x) = - log(x)$ is convex.
+$f(x,t)$ can be manipulated as follows:
+\begin{align}
+	f(x,t)	&= -\log(t^p - \norm{x}_p^p)\\
+			&= -\log\qty(t^{p-1}\qty(t - \cfrac{\norm{x}_p^p}{t^{p-1}}))\\
+			&= -\log\qty(t^{p-1}) - \log\qty(t - \cfrac{\norm{x}_p^p}{t^{p-1}})
+\end{align}
+From this it is clear that the known convex function $g(x,t)$ is put through a weighted sum (which over the domain is never negative) and then is composed with the known convex function $h(x,t)$. This means that the original function $f(x,t)$ is a convex function.
 
 \end{document}
