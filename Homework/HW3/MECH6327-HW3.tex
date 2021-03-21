@@ -16,6 +16,24 @@
 \renewcommand{\lstlistingname}{Script}
 \newcommand{\scriptname}{\lstlistingname}
 
+% Command for easier minimization problem def
+\newcommand{\optpblm}[3][eq:default]{
+	\begin{equation}\label{#1}
+% Array method... more centered		
+%		\begin{array}{rl}
+%			\text{minimize}  \hspace{0.2in} &#2 \vspace{5pt}\\
+%			\text{subject to} \hspace{0.2in} &#3
+%		\end{array}
+% Aligned method... left aligned... idk if its better
+		\begin{aligned}
+			\text{minimize} \hspace{0.5in} &#2\vspace{5pt}\\
+			\text{subject to \hspace{0.5in}} &#3
+		\end{aligned}	
+	\end{equation}
+}
+
+
+
 \allowdisplaybreaks
 
 %opening
@@ -28,48 +46,91 @@
 \maketitle
 
 \newpage
-\textbf{(Probably not necessary... but its long)}
+%\textbf{(Probably not necessary... but its long)}
 \tableofcontents
-
-
 
 \newpage
 \section*{BV Textobook Problems}
 \subsection{Problem 4.11}
-Formulate each problem as a LP and explained the relationship between the optimal solution of the problems and the solution of its LP.
+\textbf{Problem:}
+Formulate each problem as a LP and explained the relationship between the optimal solution of the problems and the solution of its LP.\\
+\textbf{Solution:}
 \subsubsection{Part a: Minimize $\norm{Ax-b}_\infty$}
+Define the following minimization problem:
+\optpblm{\norm{Ax-b}_\infty}{\text{math}}
+From the definition of an $\infty$-norm as $$\norm{x}_\infty = \max_i \abs{x_i}$$ the following can be derived:
+\optpblm{t}{\qty(Ax - b)_i\leq t, \ \forall i = 1,\dots,n\\
+		- & \qty(Ax - b)_i\leq t, \ \forall i = 1,\dots,n}
+Which is equivalent to the following linear program
+\optpblm{t}{-\vb{1}t \leq Ax - b \leq \vb{1}t}
+This minimum is related to the original minimization problem by the following transformation:
+****************************************** fill in details
 
 
-
-
-
-
+\newpage
 \subsubsection{Part b: Minimize $\norm{Ax-b}_1$}
+Define the following minimization problem:
+\optpblm{\norm{Ax-b}_1}{\text{math}}
+From the definition of an $1$-norm as $$\norm{x}_1 = \sum_i \abs{x_i}$$ the following can be derived:
+\optpblm{t_1 + \cdots + t_n}{\qty(Ax - b)_i\leq t_i, \ \forall i = 1,\dots,n\\
+-	& \qty(Ax - b)_i\leq t_i, \ \forall i = 1,\dots,n}
+Which is equivalent to the following linear program
+\optpblm{\vb{1}^T t}{-t \leq Ax - b \leq t}
+
+This minimum is related to the original minimization problem by the following transformation:
 
 
+****************************************** fill in details
 
+\newpage
+\subsubsection{Part c: Minimize $\norm{Ax-b}_1$ subject to $\norm{x}_{\infty}\leq 1$}
+Define the following minimization problem:
+\optpblm{\norm{Ax-b}_1}{\norm{x}_\infty \leq 1}
+From the definition of an $1$-norm as $$\norm{x}_1 = \sum_i \abs{x_i}$$ and the definition of an $\infty$-norm as $$\norm{x}_\infty = \max_i \abs{x_i}$$ the following can be derived:
+\optpblm{t_1 + \cdots + t_n}{\qty(Ax - b)_i\leq t_i, \ \forall i = 1,\dots,n\\
+	-& \qty(Ax - b)_i\leq t_i, \ \forall i = 1,\dots,n\\
+	 & x_i \leq 1, \forall i = 1,\dots,n\\
+	-& x_i \leq 1, \forall i = 1,\dots,n}
+Which is equivalent to the following linear program
+\optpblm{\vb{1}^T t}{-t \leq Ax - b \leq t\\
+					&-\vb{1} \leq x \leq \vb{1}}
+%				&-1 \leq x_i \leq 1, \ \forall i = 1,\dots,n}
+This minimum is related to the original minimization problem by the following transformation:
 
+****************************************** fill in details
 
-
-
-\subsubsection{Part c: Minimize $\norm{Ax-b}_1$ subject to $\norm{\infty}\leq 1$}
-
-
-
-
-
-
-
+\newpage
 \subsubsection{Part d: Minimize $\norm{x}_1$ subject to $\norm{Ax-b}_\infty \leq 1$}
+Define the following minimization problem:
+\optpblm{\norm{x}_1}{\norm{Ax-b}_\infty \leq 1}
+From the definition of an $1$-norm as $$\norm{x}_1 = \sum_i \abs{x_i}$$ and the definition of an $\infty$-norm as $$\norm{x}_\infty = \max_i \abs{x_i}$$ the following can be derived:
+\optpblm{t_1 + \cdots + t_n}{x_i \leq t_i, \ \forall i = 1,\dots,n\\
+							&-x_i \leq t_i, \ \forall i = 1,\dots,n\\
+							&(Ax-b)_i \leq 1, \ \forall i = 1,\dots,n}
+From this a linear program can be defined as:
+\optpblm{\vb{1}^T t}{-t \leq x \leq t\\
+			 		&Ax - b \leq \vb{1}}
+This minimum is related to the original minimization problem by the following transformation:
 
+****************************************** fill in details
 
-
-
-
+\newpage
 \subsubsection{Part e: Minimize $\norm{Ax-b}_1 + \norm{x}_\infty$}
+Define the following minimization problem:
+\optpblm{\norm{Ax-b}_1 + \norm{x}_\infty}{math}
+From the definition of an $1$-norm as $$\norm{x}_1 = \sum_i \abs{x_i}$$ and the definition of an $\infty$-norm as $$\norm{x}_\infty = \max_i \abs{x_i}$$ the following can be derived:
+\optpblm{t_1 + \cdots + t_n + s}{
+		\qty(Ax - b)_i\leq t_i, \ \forall i = 1,\dots,n\\
+		-& \qty(Ax - b)_i\leq t_i, \ \forall i = 1,\dots,n\\
+		&x_i \leq s, \ \forall i = 1,\dots,n\\
+	-	&x_i \leq s, \ \forall i = 1,\dots,n}
+This can be written as a standard linear program as:
+\optpblm{\vb{1}^T t + s}{
+		- t \leq Ax-b \leq t\\
+		&-\vb{1}s \leq x \leq \vb{1}s}
+This minimum is related to the original minimization problem by the following transformation:
 
-
-
+****************************************** fill in details
 
 \newpage
 \subsection{Problem 4.16}
@@ -83,7 +144,8 @@ The minimum fuel optimal control problem is to select the minimum amount of inpu
 \begin{equation}\label{eq:min_fuel_problem_def}
 	\begin{aligned}
 		\text{minimize} \hspace{0.5in} &F = \sum_{t=1}^{N-1} f(u(t))\\
-		\text{subject to \hspace{0.5in}} & x(N) = x_{des}
+		\text{subject to \hspace{0.5in}} & x(t+1) = A x(t) + b u(t), \ t = 0,\dots,N-1\\
+		& x(N) = x_{des}
 	\end{aligned}	
 \end{equation}
 with $N$ as the time-horizon, $x_{des} \in \real^n$ as the desired final state, and $f: \real \to \real$ given as
@@ -96,13 +158,41 @@ with $N$ as the time-horizon, $x_{des} \in \real^n$ as the desired final state, 
 \end{equation}
 
 \textbf{Problem:}
-Formulate this problem as a Linear Program.
-
+Formulate this problem as a Linear Program.\\
 
 \textbf{Solution:}
+First, \ref{eq:min_fuel_problem_def} can be rewritten in an epigraph form (with the additional assumption that $f(u(t))$ is always positive):
+\optpblm[eq:min_fuel_problem_epigraph]{F_1 + \cdots + F_{N-1}}{
+		f(u(t)) = F_t, \ \forall t = 1, \dots, N-1\\
+		& x(t+1) = A x(t) + b u(t), \ \forall t = 0,\dots,N-1\\
+		&x(N) = x_{des}}
+Now looking at the nonlinear component, fuel usage as defined by \eqref{eq:fuel_usage_def}, can be equated to:
+\begin{equation}
+	\begin{aligned}
+		\abs{a} \leq g\\
+		2 \abs{a} - 1 \leq g\\
+	\end{aligned}
+\end{equation}
+or equivalently,
+\begin{equation}
+	\begin{aligned}
+		-g \leq a \leq g\\
+		-g \leq 2a -1 \leq g
+	\end{aligned}
+\end{equation}
 
-
-
+This represents an intersection of two half-spaces which is a simpliler convex restriction.\\
+This can now be combined with \eqref{eq:min_fuel_problem_epigraph} to produce the linear program:
+\optpblm[eq:min_fuel_problem_result]{F_1 + \cdots + F_{N-1}}{
+	-F_t \leq u(t) \leq F_t, \ \forall t = 1, \dots, N-1\\
+	&-F_t \leq 2u(t) -1 \leq F_t, \ \forall t = 1, \dots, N-1\\
+	& x(t+1) = A x(t) + b u(t), \ \forall t = 0,\dots,N-1\\
+	&x(N) = x_{des}}
+Which can then be rewritten as:
+\optpblm[eq:min_fuel_problem_result]{\vb{1}^T F}{
+		-F \leq \vb{u} \leq F\\
+		& x(t+1) = A x(t) + b u(t), \ \forall t = 0,\dots,N-1\\
+		&x(N) = x_{des}}
 
 
 \newpage
