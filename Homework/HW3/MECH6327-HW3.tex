@@ -337,10 +337,12 @@ Minimize the conditional number of $A$ while remaining postive definite:
 The following open-loop optimal regulation problem is given as:
 \begin{equation}\label{eq:open-loop_opt-control_def}
 	\begin{aligned}
-		\text{minimze} \hspace{0.5in}&\norm{x_T}_p + \sum_{t = 0}^{T-1} \norm{x_t}_p + \gamma\norm{u_t}_q\\
-		\text{subject to} \hspace{0.5in} 	& x_{t+1} = A x_t + B u_t, \ t = 0,\dots,T-1\\
-							& \norm{x_t}_\infty \leq \bar{x}, \ t = 0,\dots,T\\
-							 & \norm{u_t}_\infty \leq \bar{u}, \ t = 0,\dots,T
+		\text{minimze} \hspace{0.5in}
+		&\norm{x_T}_p + \sum_{t = 0}^{T-1} \norm{x_t}_p + \gamma\norm{u_t}_q\\
+		\text{subject to} \hspace{0.5in}
+		& x_{t+1} = A x_t + B u_t, \ t = 0,\dots,T-1\\
+		& \norm{x_t}_\infty \leq \bar{x}, \ t = 0,\dots,T\\
+		& \norm{u_t}_\infty \leq \bar{u}, \ t = 0,\dots,T
 	\end{aligned}
 \end{equation}
 with $x_t \in \real^n$ and $u_t \in \real^m$ as the system state and control input respectively and parameter $\gamma > 0$ governing the actuator and state regulation performance.\\
@@ -351,19 +353,66 @@ Express this problem as a linear program for (i) $p=q=\infty$ and (ii) $p=q=1$. 
 \textbf{Solution:}
 \subsection{Linear program for $p = q = \infty$}
 
+With $p = q = \infty$, the problem is defined as:
+\optpblm{\norm{x_T}_\infty + \sum_{t = 0}^{T-1} \norm{x_t}_\infty + \gamma\norm{u_t}_\infty}{
+	x_{t+1} = A x_t + B u_t, \ t = 0,\dots,T-1\\
+	& \norm{x_t}_\infty \leq \bar{x}, \ t = 0,\dots,T\\
+	& \norm{u_t}_\infty \leq \bar{u}, \ t = 0,\dots,T}
+
+The epigraph of this problem can be found as
+\optpblm{r_T + (r_0 + \gamma s_0) + (r_{T-1} + \gamma s_{T-1})}{
+	\norm{x_t}_\infty \leq r_t, \ t = 0, \dots, T\\
+	&\norm{u_i}_\infty \leq s_t, \ t = 0, \dots, T-1\\
+	&x_{t+1} = A x_t + B u_t, \ t = 0,\dots,T-1\\
+	& \norm{x_t}_\infty \leq \bar{x}, \ t = 0,\dots,T\\
+	& \norm{u_t}_\infty \leq \bar{u}, \ t = 0,\dots,T
+	}
 
 
+From the definition of $\norm{x}_\infty = \max \{x\}$ and through vectorization, we can redefine this as the following linear program:
+\optpblm{
+	\mqty[\vb{1}^T & \gamma \vb{1}^T] \mqty[r\\s] 
+	=\vb{1}^T r + \gamma \vb{1}^T s}{
+	x_{t+1} = A x_t + B u_t, \ t = 0,\dots,T-1\\
+	&x_t \leq r_t \vb{1} \leq \bar{x} \vb{1}, \ t = 0, \dots, T\\
+	&u_t \leq s_t \vb{1} \leq \bar{u} \vb{1}, \ t = 0, \dots, T-1
+	}
 
 
 \subsection{Linear program for $p = q = 1$}
+With $p = q = 1$, the problem is defined as:
+\optpblm{\norm{x_T}_1 + \sum_{t = 0}^{T-1} \norm{x_t}_1 + \gamma\norm{u_t}_1}{
+	x_{t+1} = A x_t + B u_t, \ t = 0,\dots,T-1\\
+	& \norm{x_t}_\infty \leq \bar{x}, \ t = 0,\dots,T\\
+	& \norm{u_t}_\infty \leq \bar{u}, \ t = 0,\dots,T}
 
+The epigraph of this problem can be found as
+\optpblm{r_T + (r_0 + \gamma s_0) + (r_{T-1} + \gamma s_{T-1})}{
+	\norm{x_t}_1 \leq r_t, \ t = 0, \dots, T\\
+	&\norm{u_i}_1 \leq s_t, \ t = 0, \dots, T-1\\
+	&x_{t+1} = A x_t + B u_t, \ t = 0,\dots,T-1\\
+	& \norm{x_t}_\infty \leq \bar{x}, \ t = 0,\dots,T\\
+	& \norm{u_t}_\infty \leq \bar{u}, \ t = 0,\dots,T
+}
+
+
+From the definition of $\norm{x}_1 = \sum_{i=0}^T x$ and through vectorization, we can redefine this as the following linear program:
+\optpblm{
+	\mqty[\vb{1}^T & \gamma \vb{1}^T] \mqty[r\\s] 
+	=\vb{1}^T r + \gamma \vb{1}^T s}{
+	x_{t+1} = A x_t + B u_t, \ t = 0,\dots,T-1\\
+	& \vb{1}^T x_t \leq r_t, \ t = 0,\dots,T\\
+	& \vb{1}^T u_t \leq s_t, \ t = 0,\dots,T-1\\
+	&x_t \leq \bar{x} \vb{1}, \ t = 0, \dots, T\\
+	&u_t \leq \bar{u} \vb{1}, \ t = 0, \dots, T-1
+}
 
 
 
 
 \subsection{CVX Formulation and Results:}
 
-
+{\Huge Need to put in code explanation still...}
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.3.6)  22 MAR 2021 23:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.3.6)  23 MAR 2021 20:07
 entering extended mode
 **./MECH6327-HW3.tex
 (MECH6327-HW3.tex
@@ -415,6 +415,24 @@ LaTeX Warning: Label `eq:default' multiply defined.
 
 LaTeX Warning: Label `eq:default' multiply defined.
 
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
 )
 \openout1 = `MECH6327-HW3.aux'.
 
@@ -723,51 +741,51 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 336.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 345--347
+Underfull \hbox (badness 10000) in paragraph at lines 347--349
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 348--350
+Underfull \hbox (badness 10000) in paragraph at lines 350--352
 
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 352.
+(hyperref)                removing `math shift' on input line 354.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\infty' on input line 352.
+(hyperref)                removing `\infty' on input line 354.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 352.
+(hyperref)                removing `math shift' on input line 354.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 358.
+(hyperref)                removing `math shift' on input line 382.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 358.
+(hyperref)                removing `math shift' on input line 382.
 
-[13]
-Underfull \hbox (badness 10000) in paragraph at lines 385--387
+[13] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 434--436
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 392--394
+Underfull \hbox (badness 10000) in paragraph at lines 441--443
 
  []
 
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 421--423
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 470--472
 
  []
 
-[15] [16] [17] (MECH6327-HW3.bbl) [18] (MECH6327-HW3.aux)
+[16] [17] [18] (MECH6327-HW3.bbl) [19] (MECH6327-HW3.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -775,13 +793,13 @@ Package rerunfilecheck Info: File `MECH6327-HW3.out' has not changed.
 (rerunfilecheck)             Checksum: 5A2FC681894B5C00EAF38E40EE3085E0;3938.
  ) 
 Here is how much of TeX's memory you used:
- 11939 strings out of 479337
- 174097 string characters out of 2857148
- 499444 words of memory out of 3000000
- 29158 multiletter control sequences out of 15000+200000
- 412890 words of font info for 60 fonts, out of 3000000 for 9000
+ 11947 strings out of 479337
+ 174199 string characters out of 2857148
+ 504444 words of memory out of 3000000
+ 29159 multiletter control sequences out of 15000+200000
+ 413189 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 82i,15n,89p,457b,332s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 82i,15n,89p,457b,334s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cme
 xtra/cmbsy7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmbx10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/ty
@@ -798,9 +816,9 @@ amsfonts/cm/cmr7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/
 public/amsfonts/cm/cmsy10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fon
 ts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Jonas/AppData/Local/Programs/Mi
 KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on MECH6327-HW3.pdf (18 pages, 218467 bytes).
+Output written on MECH6327-HW3.pdf (19 pages, 225367 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
+ 325 PDF objects out of 1000 (max. 8388607)
+ 89 named destinations out of 1000 (max. 500000)
  169 words of extra memory for PDF output out of 10000 (max. 10000000)
 
