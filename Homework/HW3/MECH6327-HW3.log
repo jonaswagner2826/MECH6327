@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.3.6)  23 MAR 2021 22:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.3.6)  24 MAR 2021 12:33
 entering extended mode
 **./MECH6327-HW3.tex
 (MECH6327-HW3.tex
@@ -797,8 +797,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 502--504
 [16]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
 nput line 548.
- (MECH6327_HW3.m) [17] (MECH6327_HW3_pblm1.m) [18] (MECH6327_HW3_pblm2.m)
-[19] (MECH6327_HW3_pblm3.m) [20] (MECH6327-HW3.bbl) [21] (MECH6327-HW3.aux)
+ (MECH6327_HW3.m) [17] (MECH6327_HW3_pblm1.m
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 5.
+) [18] (MECH6327_HW3_pblm2.m)
+[19] (MECH6327_HW3_pblm3.m
+LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
+20.
+
+(C:\Users\Jonas\AppData\Local\Programs\MiKTeX\tex/latex/base\ts1cmtt.fd
+File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+[20]) [21] (MECH6327-HW3.bbl) [22] (MECH6327-HW3.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -806,32 +816,33 @@ Package rerunfilecheck Info: File `MECH6327-HW3.out' has not changed.
 (rerunfilecheck)             Checksum: FDB7B8CD7D5A33A72BE403782312FEB5;4266.
  ) 
 Here is how much of TeX's memory you used:
- 12290 strings out of 479337
- 177627 string characters out of 2857148
- 509584 words of memory out of 3000000
- 29467 multiletter control sequences out of 15000+200000
- 413189 words of font info for 61 fonts, out of 3000000 for 9000
+ 12397 strings out of 479337
+ 179301 string characters out of 2857148
+ 671584 words of memory out of 3000000
+ 29511 multiletter control sequences out of 15000+200000
+ 413486 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 82i,15n,89p,457b,1267s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cme
-xtra/cmbsy7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmbx10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/ty
-pe1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Jonas/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Jonas/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Jonas/Ap
-pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/
-Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C
-:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr1
-2.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmr17.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/
-amsfonts/cm/cmr7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Jonas/AppData/Local/Programs/Mi
-KTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on MECH6327-HW3.pdf (21 pages, 237688 bytes).
+ 82i,15n,89p,457b,1936s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\Jonas\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt
+1000.pk><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cmextra/cmbsy7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmbx10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Jonas/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/Jonas/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/Jonas/AppDa
+ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/Jo
+nas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/
+Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.
+pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/c
+m/cmr12.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
+sfonts/cm/cmr17.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Jonas/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on MECH6327-HW3.pdf (22 pages, 252970 bytes).
 PDF statistics:
- 368 PDF objects out of 1000 (max. 8388607)
- 111 named destinations out of 1000 (max. 500000)
+ 446 PDF objects out of 1000 (max. 8388607)
+ 170 named destinations out of 1000 (max. 500000)
  185 words of extra memory for PDF output out of 10000 (max. 10000000)
 
