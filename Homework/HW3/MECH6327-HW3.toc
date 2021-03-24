@@ -19,3 +19,5 @@
 \contentsline {section}{\numberline {3}Problem 3: State feedback control design via SDP}{16}{section.3}%
 \contentsline {section}{\numberline {A}MATLAB Code:}{17}{appendix.A}%
 \contentsline {section}{\numberline {B}Problem 3 MATLAB Code:}{18}{appendix.B}%
+\contentsline {section}{\numberline {C}Problem 3 MATLAB Code:}{19}{appendix.C}%
+\contentsline {section}{\numberline {D}Problem 3 MATLAB Code:}{20}{appendix.D}%

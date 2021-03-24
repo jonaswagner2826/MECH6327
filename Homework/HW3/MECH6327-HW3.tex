@@ -9,7 +9,6 @@
 \usepackage{hyperref}
 \usepackage{fancyvrb}
 
-
 % MATLAB Formating Code
 \usepackage[numbered,framed]{matlab-prettifier}
 \lstset{style=Matlab-editor,columns=fullflexible}
@@ -32,11 +31,8 @@
 	\end{equation}
 }
 
-
-
 \allowdisplaybreaks
 
-%opening
 \title{MECH 6327 - Homework 3}
 \author{Jonas Wagner}
 \date{2021, March 24}
@@ -46,9 +42,7 @@
 \maketitle
 
 \newpage
-%\textbf{(Probably not necessary... but its long)}
 \tableofcontents
-
 
 \newpage
 \section*{BV Textobook Problems}
@@ -81,8 +75,6 @@ The resulted minimum to this equivalent problem, $\vb{1}^T t$, is equivalent to 
 
 From this the minimizing variable, $x^*$, can be found as: $$x^* = A^{-1} (t^* + b)$$
 
-
-
 \newpage
 \subsubsection{Part c: Minimize $\norm{Ax-b}_1$ subject to $\norm{x}_{\infty}\leq 1$}
 Define the following minimization problem:
@@ -99,8 +91,6 @@ Which is equivalent to the following linear program
 The resulted minimum to this equivalent problem, $\vb{1}^T t$, is equivalent to the minimum of the original problem, $\norm{Ax-b}_1$.
 
 From this the minimizing variable, $x^*$, can be found as: $$x^* = A^{-1} (t^* + b)$$
-
-
 
 \newpage
 \subsubsection{Part d: Minimize $\norm{x}_1$ subject to $\norm{Ax-b}_\infty \leq 1$}
@@ -135,7 +125,6 @@ This can be written as a standard linear program as:
 The resulted minimum to this equivalent problem, $\vb{1}^T t + s$, is equivalent to the minimum of the original problem, $\norm{Ax-b}_1 + \norm{x}_\infty$. It should be noted that the $s$ and $\norm{x}_\infty$ are not used to find the minimization variable, but are important in weighting for solving for the minimization itself.
 
 From this the minimizing variable, $x^*$, can be found as: $$x^* = A^{-1} (t^* + b)$$
-
 
 \newpage
 \subsection{Problem 4.16}
@@ -195,10 +184,10 @@ This can now be combined with \eqref{eq:min_fuel_problem_epigraph} to produce th
 	&x(N) = x_{des}}
 Which can then be rewritten as:
 \optpblm[eq:min_fuel_problem_result]{\vb{1}^T F}{
-		-F \leq \vb{u} \leq F\\
-		& x(t+1) = A x(t) + b u(t), \ \forall t = 0,\dots,N-1\\
-		&x(N) = x_{des}}
-
+	-F \leq \vb{u} \leq F\\
+	& x(t+1) = A x(t) + b u(t), \ \forall t = 0,\dots,N-1\\
+	&x(N) = x_{des}
+	}
 
 \newpage
 \subsection{Problem 4.28}
@@ -239,6 +228,10 @@ This is just wrong....... as in I don't think this es even true...
 
 
 
+
+
+
+
 % no part b,c for 4.28
 
 
@@ -271,6 +264,21 @@ Since $s$ will remain constant regrdless of $x$, this is equivalent to:
 	t_i = \lambda_1(A_i), \ \forall i = 1,\dots,m}
 
 ????????????????????????????????????????????????????
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 \subsubsection{Part b}
@@ -307,6 +315,12 @@ WHAT???
 
 
 
+
+
+
+
+
+
 \subsubsection{Part c}
 \textbf{Problem:}
 Minimize the conditional number of $A$ while remaining postive definite:
@@ -325,12 +339,16 @@ Minimize the conditional number of $A$ while remaining postive definite:
 
 
 
+
+
+
+
+
+
+
+
+
 % Only Part a,b,c for 4.43
-
-
-
-
-
 
 \newpage
 \section{Problem 1: Open-loop optimal control with $1-$ and $\infty-$ norms.}
@@ -368,7 +386,6 @@ The epigraph of this problem can be found as
 	& \norm{u_t}_\infty \leq \bar{u}, \ t = 0,\dots,T
 	}
 
-
 From the definition of $\norm{x}_\infty = \max \{x\}$ and through vectorization, we can redefine this as the following linear program:
 \optpblm{
 	\mqty[\vb{1}^T & \gamma \vb{1}^T] \mqty[r\\s] 
@@ -377,7 +394,6 @@ From the definition of $\norm{x}_\infty = \max \{x\}$ and through vectorization,
 	&x_t \leq r_t \vb{1} \leq \bar{x} \vb{1}, \ t = 0, \dots, T\\
 	&u_t \leq s_t \vb{1} \leq \bar{u} \vb{1}, \ t = 0, \dots, T-1
 	}
-
 
 \subsection{Linear program for $p = q = 1$}
 With $p = q = 1$, the problem is defined as:
@@ -395,7 +411,6 @@ The epigraph of this problem can be found as
 	& \norm{u_t}_\infty \leq \bar{u}, \ t = 0,\dots,T
 }
 
-
 From the definition of $\norm{x}_1 = \sum_{i=0}^T x$ and through vectorization, we can redefine this as the following linear program:
 \optpblm{
 	\mqty[\vb{1}^T & \gamma \vb{1}^T] \mqty[r\\s] 
@@ -407,12 +422,20 @@ From the definition of $\norm{x}_1 = \sum_{i=0}^T x$ and through vectorization, 
 	&u_t \leq \bar{u} \vb{1}, \ t = 0, \dots, T-1
 }
 
-
-
-
 \subsection{CVX Formulation and Results:}
 
 {\Huge Need to put in code explanation still...}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -449,6 +472,15 @@ Let the following optimization problem be defined:
 	& x(0) = x_0\\
 	& x_t = x_{des} \ \forall \ \tau \leq t \leq T+1
 	}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -512,16 +544,29 @@ The following results are provided for various randomly generated problems and s
 \appendix
 \section{MATLAB Code:}\label{apx:matlab}
 All code I write in this course can be found on my GitHub repository:\\
-\href{https://github.com/jonaswagner2826/MECH6313}{https://github.com/jonaswagner2826/MECH6327}
-%\lstinputlisting[caption={MECH6323\_HW3},label={script:HW1}]{MECH6327_HW3.m}
+\href{https://github.com/jonaswagner2826/MECH6337}{https://github.com/jonaswagner2826/MECH6327}
+\lstinputlisting[caption={MECH6327\_HW3},label={script:HW3}]{MECH6327_HW3.m}
 
+\newpage
+\section{Problem 3 MATLAB Code:}\label{apx:pblm1_matlab}
+All code I write in this course can be found on my GitHub repository:\\
+\href{https://github.com/jonaswagner2826/MECH6327}{https://github.com/jonaswagner2826/MECH6327}
+% MECH6313_HW3_pblm1
+\lstinputlisting[caption={MECH6327\_HW3\_pblm1},label={script:HW3}]{MECH6327_HW3_pblm1.m}
+
+\newpage
+\section{Problem 3 MATLAB Code:}\label{apx:pblm2_matlab}
+All code I write in this course can be found on my GitHub repository:\\
+\href{https://github.com/jonaswagner2826/MECH6327}{https://github.com/jonaswagner2826/MECH6327}
+% MECH6313_HW3_pblm2
+\lstinputlisting[caption={MECH6327\_HW3\_pblm2},label={script:HW3}]{MECH6327_HW3_pblm2.m}
 
 \newpage
 \section{Problem 3 MATLAB Code:}\label{apx:pblm3_matlab}
 All code I write in this course can be found on my GitHub repository:\\
-\href{https://github.com/jonaswagner2826/MECH6313}{https://github.com/jonaswagner2826/MECH6327}
-% MECH6313_HW3
-%\lstinputlisting[caption={MECH6323\_HW3},label={script:HW1}]{MECH6327_HW3_pblm3.m}
+\href{https://github.com/jonaswagner2826/MECH6327}{https://github.com/jonaswagner2826/MECH6327}
+% MECH6313_HW3_pblm3
+\lstinputlisting[caption={MECH6327\_HW3\_pblm3},label={script:HW3}]{MECH6327_HW3_pblm3.m}
 
 
 
