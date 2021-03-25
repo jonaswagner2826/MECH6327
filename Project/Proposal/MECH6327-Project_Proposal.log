@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.3.6)  20 MAR 2021 01:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.3.6)  24 MAR 2021 18:00
 entering extended mode
 **./MECH6327-Project_Proposal.tex
 (MECH6327-Project_Proposal.tex
@@ -352,9 +352,9 @@ ed.
 (rerunfilecheck)             Checksum: 5F412C7BA2A2CFD3E36E5C9D6BFC67DC;378.
  ) 
 Here is how much of TeX's memory you used:
- 8710 strings out of 479337
- 127754 string characters out of 2857148
- 442270 words of memory out of 3000000
+ 8706 strings out of 479337
+ 127728 string characters out of 2857148
+ 440270 words of memory out of 3000000
  26047 multiletter control sequences out of 15000+200000
  409151 words of font info for 47 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -375,9 +375,9 @@ m/cmr8.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmr9.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/pub
 lic/amsfonts/cm/cmsy10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmti10.pfb>
-Output written on MECH6327-Project_Proposal.pdf (3 pages, 192854 bytes).
+Output written on MECH6327-Project_Proposal.pdf (3 pages, 191552 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 32 named destinations out of 1000 (max. 500000)
+ 130 PDF objects out of 1000 (max. 8388607)
+ 28 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 

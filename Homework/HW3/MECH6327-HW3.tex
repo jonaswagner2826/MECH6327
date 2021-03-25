@@ -216,20 +216,14 @@ As a base assumption, by definition all quadratic programs are convex. Additiona
 Thus, for a supremum over the finite set of $\mathcal{E}$ it is known that a resultant convex problem can be defined.\\
 
 First, we can redefine the problem as
-\optpblm{\frac{1}{2} x^T P x + q^T x + r}{
-	P \in\ \mathcal{E}\\
+\optpblm{\sup \{t_1, \dots, t_k\}}{
+	\frac{1}{2} x^T P_i x + q^T x + r \leq t_i, \ i = 1, \dots, k\\
 	&Ax \leq b}
-
-This is just wrong....... as in I don't think this es even true...
-
-
-
-
-
-
-
-
-
+Another eipigraph can then be analyzed to create the following convex optimization problem:
+\optpblm{s}{
+	t_i \leq s, \ i = 1, \dots, k\\
+	&\frac{1}{2} x^T P_i x + q^T x + r \leq t_i, \ i = 1, \dots, k\\
+	&Ax \leq b}
 
 
 % no part b,c for 4.28
@@ -250,59 +244,52 @@ For each of the following minimization criteria, formulate the problem as an SDP
 \textbf{Problem:}
 Minimize the maximum eigenvalue of $A$: $$\text{minimize} \ \ \lambda_1(x)$$
 \textbf{Solution:}
-It is known that the eigenvalues of a sum of matrices is bounded below by the sum of the minimum eigenvalues of each and bounded above by the sum of the maximum eigenvalues.
-\cite{eigvalueBound}
-i.e.
-$$ \lambda(A)_m + \lambda(B)_m \leq \lambda(A+B)_m \leq \lambda(A+B)_1 \leq \lambda(A)_1 + \lambda(B)_1$$
-If this is to be expanded to the entire affine sum, $A(x)$, the objective of minimizing the eigenvalues of the weighted sum of symetric matrices can be done by minimizing the weighted sum of the largest eigenvalues of individual matrices.
-This means this problem can be redefined as:
-\optpblm{t^T x}{
-	t_i = \lambda_1(A_i), \ \forall i = 1,\dots,m\\
-	&s = \lambda_1(A_0)}
-Since $s$ will remain constant regrdless of $x$, this is equivalent to:
-\optpblm{t^T x}{
-	t_i = \lambda_1(A_i), \ \forall i = 1,\dots,m}
-
-????????????????????????????????????????????????????
+This ca be re-written in epigraph form as:
+\optpblm{t}{\lambda_1 \leq t}
+or similarily as an SDP:
+\optpblm{t}{A(x) \preceq t I}
 
 
+%It is known that the eigenvalues of a sum of matrices is bounded below by the sum of the minimum eigenvalues of each and bounded above by the sum of the maximum eigenvalues.
+%\cite{eigvalueBound}
+%i.e.
+%$$ \lambda(A)_m + \lambda(B)_m \leq \lambda(A+B)_m \leq \lambda(A+B)_1 \leq \lambda(A)_1 + \lambda(B)_1$$
+%If this is to be expanded to the entire affine sum, $A(x)$, the objective of minimizing the eigenvalues of the weighted sum of symetric matrices can be done by minimizing the weighted sum of the largest eigenvalues of individual matrices.
+%This means this problem can be redefined as:
+%\optpblm{t^T x}{
+%	t_i = \lambda_1(A_i), \ \forall i = 1,\dots,m\\
+%	&s = \lambda_1(A_0)}
+%Since $s$ will remain constant regrdless of $x$, this is equivalent to:
+%\optpblm{t^T x}{
+%	t_i = \lambda_1(A_i), \ \forall i = 1,\dots,m}
+%
+%????????????????????????????????????????????????????
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
 \subsubsection{Part b}
 \textbf{Problem:}
 Minimize the spread of the eigenvalues of $A$: $$\text{minimize} \ \ \lambda_1(x) - \lambda_m(x)$$\\
 \textbf{Solution:}
+This can be rewritten in epigraph form as
+\optpblm{t_1 - t_2}{\lambda_1 \leq t_1\\ & \lambda_m \leq t_2}
+or similarly as an SDP:
+\optpblm{t_1}{A(x) \preceq t_1 I\\ &A(x) \succeq t_2}
 
 
-
-It is known that the eigenvalues of a sum of matrices is bounded below by the sum of the minimum eigenvalues of each and bounded above by the sum of the maximum eigenvalues.
-\cite{eigvalueBound}
-i.e.
-$$ \lambda(A)_m + \lambda(B)_m \leq \lambda(A+B)_m \leq \lambda(A+B)_1 \leq \lambda(A)_1 + \lambda(B)_1$$
-If this is to be expanded to the entire affine sum, $A(x)$, the objective of minimizing the spread eigenvalues of the weighted sum of symetric matrices can be done by minimizing the weighted sum of the spread of eigenvalues of individual matrices.
-This means this problem can be redefined as:
-\optpblm{t^T x + s}{
-	t_i = (\lambda_1(A_i) - \lambda_m(A_i), \ \forall i = 1,\dots,m\\
-	&s = (\lambda_1(A_0) - \lambda_m(A_0)}
-Since $s$ remains constant regardless of $x$ this is equivelent to
-\optpblm{t^T x}{
-	t_i = (\lambda_1(A_i) - \lambda_m(A_i), \ \forall i = 1,\dots,m}
-
-
-????????????????????????????????????????????????????
+%It is known that the eigenvalues of a sum of matrices is bounded below by the sum of the minimum eigenvalues of each and bounded above by the sum of the maximum eigenvalues.
+%\cite{eigvalueBound}
+%i.e.
+%$$ \lambda(A)_m + \lambda(B)_m \leq \lambda(A+B)_m \leq \lambda(A+B)_1 \leq \lambda(A)_1 + \lambda(B)_1$$
+%If this is to be expanded to the entire affine sum, $A(x)$, the objective of minimizing the spread eigenvalues of the weighted sum of symetric matrices can be done by minimizing the weighted sum of the spread of eigenvalues of individual matrices.
+%This means this problem can be redefined as:
+%\optpblm{t^T x + s}{
+%	t_i = (\lambda_1(A_i) - \lambda_m(A_i), \ \forall i = 1,\dots,m\\
+%	&s = (\lambda_1(A_0) - \lambda_m(A_0)}
+%Since $s$ remains constant regardless of $x$ this is equivelent to
+%\optpblm{t^T x}{
+%	t_i = (\lambda_1(A_i) - \lambda_m(A_i), \ \forall i = 1,\dots,m}
+%
+%
+%????????????????????????????????????????????????????
 
 
 %Defining the optimization problem as:
@@ -310,17 +297,10 @@ Since $s$ remains constant regardless of $x$ this is equivelent to
 %	A(x) = A_0 + x_1 A_1 + \cdots + x_n A_n}\\
 
 
+%
+%WHAT???
 
-WHAT???
-
-
-
-
-
-
-
-
-
+\newpage
 \subsubsection{Part c}
 \textbf{Problem:}
 Minimize the conditional number of $A$ while remaining postive definite:
@@ -331,22 +311,18 @@ Minimize the conditional number of $A$ while remaining postive definite:
 	\end{aligned}
 \end{equation*}
 \textbf{Solution:}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+This can be rewritten in epigraph form as
+\optpblm{t_1 / t_2}{
+	\lambda_1 \leq t_1\\
+	& \lambda_m \leq t_2\\
+	&A \succ 0
+	}
+or similarly as an SDP:
+\optpblm{t_1 / t_2}{
+	A(x) \preceq t_1 I\\
+	&A(x) \succeq t_2\\
+	&A \succ 0
+	}
 
 % Only Part a,b,c for 4.43
 
@@ -422,29 +398,40 @@ From the definition of $\norm{x}_1 = \sum_{i=0}^T x$ and through vectorization, 
 	&u_t \leq \bar{u} \vb{1}, \ t = 0, \dots, T-1
 }
 
+
+\newpage
 \subsection{CVX Formulation and Results:}
+The code used to solve the linear programs and direct norm cvx calculations can be found in \appendixname \ref{apx:pblm1_matlab}.\\
 
-{\Huge Need to put in code explanation still...}
+\subsubsection{$\infty$-norm Solution}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{fig/pblm1_inftyn_x}
+	\caption{States for Open-loop control comparing methods for $\infty$-norm.}
+	\label{fig:pblm1inftynx}
+\end{figure}\newpage
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{fig/pblm1_inftyn_u}
+	\caption{Inputs for Open-loop control comparing methods for $\infty$-norm.}
+	\label{fig:pblm1inftynu}
+\end{figure}\newpage
 
+\subsubsection{1-norm Solution}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{fig/pblm1_1n_x}
+	\caption{States for Open-loop control comparing methods for 1-norm.}
+	\label{fig:pblm11nx}
+\end{figure}\newpage
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{fig/pblm1_1n_u}
+	\caption{Inputs for Open-loop control comparing methods for 1-norm.}
+	\label{fig:pblm11nu}
+\end{figure}
 
 \newpage
 \section{Problem 2: Minimum time state transfer via quasiconvex optimization.}
@@ -465,35 +452,34 @@ Show that the minimum time required to transfer the system from $x_0$ to $x_{des
 is a quasiconvex function of the control input sequence. Implement a bisection algorithm to solve the problem for the given data.\\
 
 \textbf{Solution:}
-Let the following optimization problem be defined:
+It is evident from the definition of the minimization problem that the time required to reach the final state for each sequence of inputs is a convex optimization problem. From that, it is known that the function overall is a quasi-convex optimization problem defined as:
 \optpblm{\tau}{
-	x_{t+1} = Ax_t + B u_t, \ \forall t = 0,\dots,T\\
-	&\underline{u} \leq u_t \leq \bar{u}, \ \forall t = 0,\dots,T\\
-	& x(0) = x_0\\
-	& x_t = x_{des} \ \forall \ \tau \leq t \leq T+1
+	x_{t+1} = Ax_t + B u_t \ \forall t = 0,\dots,T\\
+	&\underline{u} \leq u_t \leq \bar{u} \ \forall t = 0,\dots,T\\
+	&x(0) = x_0\\
+	&x_t = x_{des} \ \forall t \in \{t \ | \ \tau \leq t \leq {T+1}\}
 	}
 
+For simplicity, we will be relaxing the final state to just reaching it at the earliest instead of remaining at rest:
+$$x_\tau = x_{des}$$
 
+A bisection algorithm can then be implemented to solve this as done using the MATLAB code shown in \appendixname \ \ref{apx:pblm2_matlab}. The result of this was a minimum value $$t = 51, \text{ or } \tau = 10.2$$
 
-
-
-
-
-
-
-
-
-
-
-
-
+\newpage
+The resulting system response and control sequence are provided as:
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=1\linewidth]{fig/pblm2}
+	\caption{Results for problem 2.}
+	\label{fig:pblm2}
+\end{figure}
 
 \newpage
 \section{Problem 3: State feedback control design via SDP}
 Feedback control problems can be formulated using a semidefinite program, such as
 \begin{equation}\label{eq:feedback_control_def}
 	\begin{aligned}
-		\text{minimze} \hspace{0.5in}& \trace \{P\}\\
+		\text{maximize} \hspace{0.5in}& \trace \{P\}\\
 		\text{subject to} \hspace{0.5in}
 		& \mqty [R + B^T PB & B^T PA\\
 				 A^T PB & Q + A^T P A - P] \succeq 0\\
@@ -520,25 +506,56 @@ This is also equivelent to the solution the the discrete-time richotte equation 
 Confirm the solution to the SDP given in \eqref{eq:feedback_control_def} is equivalent to the LQR problem given in \eqref{eq:LQR_control_def} for multiple randomly generated problems.
 
 \textbf{Solution:}
-The following results are provided for various randomly generated problems and solutions. This was generated using the code in \appendixname \ref{apx:pblm3_matlab}.
+CVX in MATLAB was used and the code can be found in \appendixname \ref{apx:pblm3_matlab}.The full set of results are provided in \appendixname \ref{apx:pblm3_results} for various randomly generated problems and solutions. The following is a few of P equivelent reuslts.
 
 \begin{Verbatim}
-	contents....
+	P_cvx =
+	
+	20.3336   10.5025   -3.3125   37.1904
+	10.5025   12.9464   -1.8618   32.8376
+	-3.3125   -1.8618    2.3441   -4.8914
+	37.1904   32.8376   -4.8914   97.6353
+	
+	
+	P_dare =
+	
+	20.3336   10.5025   -3.3125   37.1904
+	10.5025   12.9464   -1.8618   32.8376
+	-3.3125   -1.8618    2.3441   -4.8914
+	37.1904   32.8376   -4.8914   97.6353
 \end{Verbatim}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{Verbatim}
+	P_cvx =
+	
+	9.2752    0.3867    1.2843   -2.9794
+	0.3867    4.4079    0.6458    1.1789
+	1.2843    0.6458    1.9253    0.5430
+	-2.9794    1.1789    0.5430    4.4857
+	
+	
+	P_dare =
+	
+	9.2752    0.3867    1.2843   -2.9794
+	0.3867    4.4079    0.6458    1.1789
+	1.2843    0.6458    1.9253    0.5430
+	-2.9794    1.1789    0.5430    4.4857
+\end{Verbatim}
+\begin{Verbatim}
+	P_cvx =
+	
+	101.8040  -50.0081   -0.8792  117.2149
+	-50.0081   28.3481    2.3037  -57.6749
+	-0.8792    2.3037    4.1602    0.2983
+	117.2149  -57.6749    0.2983  136.1756
+	
+	
+	P_dare =
+	
+	101.8040  -50.0081   -0.8792  117.2149
+	-50.0081   28.3481    2.3037  -57.6749
+	-0.8792    2.3037    4.1602    0.2983
+	117.2149  -57.6749    0.2983  136.1756
+\end{Verbatim}
 
 \newpage
 \appendix
@@ -568,19 +585,399 @@ All code I write in this course can be found on my GitHub repository:\\
 % MECH6313_HW3_pblm3
 \lstinputlisting[caption={MECH6327\_HW3\_pblm3},label={script:HW3}]{MECH6327_HW3_pblm3.m}
 
-
-
-
-
-
-
-
-
-
-
-
 \newpage
-\bibliographystyle{ieeetr}
-\bibliography{mybib.bib}
+\section{Problem 3 MATLAB Results:}\label{apx:pblm3_results}
+
+\begin{Verbatim}
+	>> MECH6327_HW3_pblm3
+	
+	A =
+	
+	1.1002   -1.1372    1.1077    0.2641
+	0.1751    0.6430    0.8205    3.1585
+	1.0036   -0.0128   -0.8176    1.2266
+	1.5110    0.9143   -0.1265    2.3206
+	
+	
+	B =
+	
+	0.4145    1.2416
+	0.2118   -0.1576
+	0.6132   -1.3736
+	-0.5278    0.8708
+	
+	
+	Q =
+	
+	0.4766    0.4525    0.2565    0.4911
+	0.4525    0.5808    0.3777    0.7950
+	0.2565    0.3777    0.4440    0.4396
+	0.4911    0.7950    0.4396    1.2997
+	
+	
+	R =
+	
+	1.1591    0.8154
+	0.8154    0.7716
+	
+	
+	Calling SDPT3 4.0: 31 variables, 10 equality constraints
+	For improved efficiency, SDPT3 is solving the dual problem.
+	------------------------------------------------------------
+	
+	num. of constraints = 10
+	dim. of sdp    var  = 10,   num. of sdp  blk  =  2
+	*******************************************************************
+	SDPT3: Infeasible path-following algorithms
+	*******************************************************************
+	version  predcorr  gam  expon  scale_data
+	HKM      1      0.000   1        0    
+	it pstep dstep pinfeas dinfeas  gap      prim-obj      dual-obj    cputime
+	-------------------------------------------------------------------
+	0|0.000|0.000|8.4e+01|1.2e+01|1.5e+03| 4.731862e+01  0.000000e+00| 0:0:00| chol  1  1 
+	1|0.894|0.821|8.9e+00|2.3e+00|2.2e+02| 2.141617e+01  1.453677e+01| 0:0:00| chol  1  1 
+	2|0.833|0.841|1.5e+00|3.7e-01|5.1e+01| 2.431086e+01  1.330905e+01| 0:0:00| chol  1  1 
+	3|0.515|0.846|7.2e-01|5.7e-02|2.1e+01| 2.140755e+01  2.132680e+01| 0:0:00| chol  1  1 
+	4|0.187|0.237|5.9e-01|4.4e-02|1.9e+01| 2.434592e+01  7.419460e+01| 0:0:00| chol  1  1 
+	5|0.061|0.042|5.5e-01|4.2e-02|2.7e+01| 3.321322e+01  1.216786e+02| 0:0:00| chol  1  1 
+	6|0.104|0.026|4.9e-01|4.1e-02|5.4e+01| 6.400240e+01  6.740367e+01| 0:0:00| chol  1  1 
+	7|0.129|0.433|4.3e-01|2.3e-02|5.0e+01| 7.772307e+01  1.153429e+02| 0:0:00| chol  1  1 
+	8|1.000|0.825|1.4e-08|4.0e-03|4.5e+01| 1.616373e+02  1.181693e+02| 0:0:00| chol  1  1 
+	9|0.962|0.980|2.6e-07|7.9e-05|1.8e+00| 1.344089e+02  1.326294e+02| 0:0:00| chol  1  1 
+	10|0.965|0.977|9.4e-09|1.8e-06|5.8e-02| 1.333014e+02  1.332444e+02| 0:0:00| chol  1  1 
+	11|0.958|1.000|3.9e-10|1.9e-09|3.6e-03| 1.332623e+02  1.332587e+02| 0:0:00| chol  1  1 
+	12|0.987|1.000|7.9e-12|7.9e-11|2.8e-04| 1.332596e+02  1.332594e+02| 0:0:00| chol  1  1 
+	13|0.952|0.987|1.2e-11|2.6e-12|1.3e-05| 1.332595e+02  1.332595e+02| 0:0:00| chol  1  1 
+	14|1.000|1.000|5.2e-12|2.3e-12|1.2e-06| 1.332595e+02  1.332595e+02| 0:0:00|
+	stop: max(relative gap, infeasibilities) < 1.49e-08
+	-------------------------------------------------------------------
+	number of iterations   = 14
+	primal objective value =  1.33259457e+02
+	dual   objective value =  1.33259456e+02
+	gap := trace(XZ)       = 1.15e-06
+	relative gap           = 4.31e-09
+	actual relative gap    = 4.31e-09
+	rel. primal infeas (scaled problem)   = 5.20e-12
+	rel. dual     "        "       "      = 2.32e-12
+	rel. primal infeas (unscaled problem) = 0.00e+00
+	rel. dual     "        "       "      = 0.00e+00
+	norm(X), norm(y), norm(Z) = 1.7e+02, 1.1e+02, 1.7e+03
+	norm(A), norm(b), norm(C) = 3.5e+01, 3.0e+00, 3.9e+00
+	Total CPU time (secs)  = 0.47  
+	CPU time per iteration = 0.03  
+	termination code       =  0
+	DIMACS: 7.8e-12  0.0e+00  4.0e-12  0.0e+00  4.3e-09  4.3e-09
+	-------------------------------------------------------------------
+	
+	------------------------------------------------------------
+	Status: Solved
+	Optimal value (cvx_optval): -133.259
+	
+	
+	P_cvx =
+	
+	20.3336   10.5025   -3.3125   37.1904
+	10.5025   12.9464   -1.8618   32.8376
+	-3.3125   -1.8618    2.3441   -4.8914
+	37.1904   32.8376   -4.8914   97.6353
+	
+	
+	K_cvx =
+	
+	1.3793    2.0277   -0.1335    4.7523
+	-1.0233    0.0284   -0.4975   -1.2125
+	
+	
+	P_dare =
+	
+	20.3336   10.5025   -3.3125   37.1904
+	10.5025   12.9464   -1.8618   32.8376
+	-3.3125   -1.8618    2.3441   -4.8914
+	37.1904   32.8376   -4.8914   97.6353
+	
+	
+	K_dare =
+	
+	-1.3793   -2.0277    0.1335   -4.7523
+	1.0233   -0.0284    0.4975    1.2125
+	
+	
+	P_cvx =
+	
+	20.3336   10.5025   -3.3125   37.1904
+	10.5025   12.9464   -1.8618   32.8376
+	-3.3125   -1.8618    2.3441   -4.8914
+	37.1904   32.8376   -4.8914   97.6353
+	
+	
+	P_dare =
+	
+	20.3336   10.5025   -3.3125   37.1904
+	10.5025   12.9464   -1.8618   32.8376
+	-3.3125   -1.8618    2.3441   -4.8914
+	37.1904   32.8376   -4.8914   97.6353
+	
+	>> MECH6327_HW3_pblm3
+	
+	A =
+	
+	-0.8568    1.3798   -0.6563    1.1284
+	0.0484    0.0951   -0.1250    0.7425
+	-0.6649   -0.4271   -0.5305    1.1436
+	1.4527    0.5108    0.1056   -0.9147
+	
+	
+	B =
+	
+	0.1798    1.2963
+	-0.9833    1.0992
+	0.3848    0.6532
+	0.3257   -0.5051
+	
+	
+	Q =
+	
+	0.3838    0.3714    0.4771    0.6771
+	0.3714    1.2344    1.2453    1.0731
+	0.4771    1.2453    1.4076    1.4208
+	0.6771    1.0731    1.4208    2.1397
+	
+	
+	R =
+	
+	0.5081    0.7407
+	0.7407    1.1909
+	
+	
+	Calling SDPT3 4.0: 31 variables, 10 equality constraints
+	For improved efficiency, SDPT3 is solving the dual problem.
+	------------------------------------------------------------
+	
+	num. of constraints = 10
+	dim. of sdp    var  = 10,   num. of sdp  blk  =  2
+	*******************************************************************
+	SDPT3: Infeasible path-following algorithms
+	*******************************************************************
+	version  predcorr  gam  expon  scale_data
+	HKM      1      0.000   1        0    
+	it pstep dstep pinfeas dinfeas  gap      prim-obj      dual-obj    cputime
+	-------------------------------------------------------------------
+	0|0.000|0.000|4.4e+01|5.2e+00|1.0e+03| 6.864540e+01  0.000000e+00| 0:0:00| chol  1  1 
+	1|0.886|0.852|5.0e+00|8.2e-01|1.7e+02| 5.707109e+01  1.265425e+01| 0:0:00| chol  1  1 
+	2|0.782|1.000|1.1e+00|5.5e-03|5.2e+01| 5.048488e+01  1.175262e+01| 0:0:00| chol  1  1 
+	3|0.752|1.000|2.7e-01|5.5e-04|1.6e+01| 2.602445e+01  1.535157e+01| 0:0:00| chol  1  1 
+	4|1.000|0.756|1.8e-07|1.8e-04|7.3e+00| 2.578672e+01  1.846254e+01| 0:0:00| chol  1  1 
+	5|0.933|1.000|1.8e-08|5.6e-06|5.8e-01| 2.048293e+01  1.990168e+01| 0:0:00| chol  1  1 
+	6|0.964|0.970|2.0e-09|7.1e-07|2.9e-02| 2.011379e+01  2.008495e+01| 0:0:00| chol  1  1 
+	7|0.965|1.000|6.3e-10|5.6e-08|1.7e-03| 2.009536e+01  2.009368e+01| 0:0:00| chol  1  1 
+	8|0.994|1.000|1.8e-10|1.3e-10|1.2e-04| 2.009415e+01  2.009404e+01| 0:0:00| chol  1  1 
+	9|0.953|0.987|6.7e-11|3.7e-11|5.3e-06| 2.009409e+01  2.009408e+01| 0:0:00| chol  1  1 
+	10|1.000|1.000|6.7e-15|1.3e-11|1.2e-06| 2.009408e+01  2.009408e+01| 0:0:00| chol  1  1 
+	11|1.000|1.000|1.7e-14|1.0e-12|1.3e-08| 2.009408e+01  2.009408e+01| 0:0:00|
+	stop: max(relative gap, infeasibilities) < 1.49e-08
+	-------------------------------------------------------------------
+	number of iterations   = 11
+	primal objective value =  2.00940824e+01
+	dual   objective value =  2.00940824e+01
+	gap := trace(XZ)       = 1.33e-08
+	relative gap           = 3.22e-10
+	actual relative gap    = 3.22e-10
+	rel. primal infeas (scaled problem)   = 1.70e-14
+	rel. dual     "        "       "      = 1.00e-12
+	rel. primal infeas (unscaled problem) = 0.00e+00
+	rel. dual     "        "       "      = 0.00e+00
+	norm(X), norm(y), norm(Z) = 8.9e+00, 1.2e+01, 8.9e+01
+	norm(A), norm(b), norm(C) = 1.8e+01, 3.0e+00, 5.7e+00
+	Total CPU time (secs)  = 0.42  
+	CPU time per iteration = 0.04  
+	termination code       =  0
+	DIMACS: 2.6e-14  0.0e+00  1.8e-12  0.0e+00  3.2e-10  3.2e-10
+	-------------------------------------------------------------------
+	
+	------------------------------------------------------------
+	Status: Solved
+	Optimal value (cvx_optval): -20.0941
+	
+	
+	P_cvx =
+	
+	9.2752    0.3867    1.2843   -2.9794
+	0.3867    4.4079    0.6458    1.1789
+	1.2843    0.6458    1.9253    0.5430
+	-2.9794    1.1789    0.5430    4.4857
+	
+	
+	K_cvx =
+	
+	0.5888   -0.3683    0.2601   -0.1295
+	0.7294   -0.5856    0.4291   -0.9410
+	
+	
+	P_dare =
+	
+	9.2752    0.3867    1.2843   -2.9794
+	0.3867    4.4079    0.6458    1.1789
+	1.2843    0.6458    1.9253    0.5430
+	-2.9794    1.1789    0.5430    4.4857
+	
+	
+	K_dare =
+	
+	-0.5888    0.3683   -0.2601    0.1295
+	-0.7294    0.5856   -0.4291    0.9410
+	
+	
+	P_cvx =
+	
+	9.2752    0.3867    1.2843   -2.9794
+	0.3867    4.4079    0.6458    1.1789
+	1.2843    0.6458    1.9253    0.5430
+	-2.9794    1.1789    0.5430    4.4857
+	
+	
+	P_dare =
+	
+	9.2752    0.3867    1.2843   -2.9794
+	0.3867    4.4079    0.6458    1.1789
+	1.2843    0.6458    1.9253    0.5430
+	-2.9794    1.1789    0.5430    4.4857
+	
+	>> MECH6327_HW3_pblm3
+	
+	A =
+	
+	-1.5312    0.7880    1.6345   -0.9443
+	0.5046    0.2982   -0.6235   -0.6712
+	-0.8642   -0.1637   -1.3501    0.5767
+	-0.3766    0.6067   -1.1622   -2.0858
+	
+	
+	B =
+	
+	0.2360    0.0076
+	-0.7784   -0.9376
+	1.0996   -0.6816
+	-0.8556   -0.2601
+	
+	
+	Q =
+	
+	1.5071    1.3058    1.2427    1.5227
+	1.3058    2.0018    1.1626    1.6402
+	1.2427    1.1626    1.9380    2.0005
+	1.5227    1.6402    2.0005    2.2226
+	
+	
+	R =
+	
+	0.1582    0.2334
+	0.2334    0.4393
+	
+	
+	Calling SDPT3 4.0: 31 variables, 10 equality constraints
+	For improved efficiency, SDPT3 is solving the dual problem.
+	------------------------------------------------------------
+	
+	num. of constraints = 10
+	dim. of sdp    var  = 10,   num. of sdp  blk  =  2
+	*******************************************************************
+	SDPT3: Infeasible path-following algorithms
+	*******************************************************************
+	version  predcorr  gam  expon  scale_data
+	HKM      1      0.000   1        0    
+	it pstep dstep pinfeas dinfeas  gap      prim-obj      dual-obj    cputime
+	-------------------------------------------------------------------
+	0|0.000|0.000|4.4e+01|3.9e+00|1.0e+03| 8.266937e+01  0.000000e+00| 0:0:00| chol  1  1 
+	1|0.818|0.880|8.1e+00|5.1e-01|1.7e+02| 3.173665e+01  9.183288e+00| 0:0:00| chol  1  1 
+	2|0.761|0.758|1.9e+00|1.3e-01|6.0e+01| 2.745402e+01  1.125760e+01| 0:0:00| chol  1  1 
+	3|0.553|0.897|8.6e-01|1.3e-02|2.5e+01| 2.195296e+01  1.974743e+01| 0:0:00| chol  1  1 
+	4|0.169|0.214|7.2e-01|1.1e-02|2.1e+01| 2.472518e+01  1.029151e+02| 0:0:00| chol  1  1 
+	5|0.017|0.022|7.1e-01|1.0e-02|3.3e+01| 3.109723e+01  1.695860e+02| 0:0:00| chol  1  1 
+	6|0.061|0.035|6.6e-01|1.0e-02|7.8e+01| 8.019566e+01  2.054055e+02| 0:0:00| chol  1  1 
+	7|0.423|0.391|3.8e-01|6.1e-03|1.4e+02| 2.228571e+02  2.222143e+02| 0:0:00| chol  1  1 
+	8|1.000|0.531|8.3e-06|2.8e-03|1.1e+02| 3.445733e+02  2.448139e+02| 0:0:00| chol  2  1 
+	9|0.952|1.000|1.7e-06|1.7e-06|1.6e+01| 2.823759e+02  2.660703e+02| 0:0:00| chol  1  1 
+	10|0.950|0.991|8.3e-08|3.5e-07|1.1e+00| 2.712737e+02  2.701719e+02| 0:0:00| chol  1  1 
+	11|1.000|1.000|2.1e-10|1.7e-08|1.1e-01| 2.705570e+02  2.704431e+02| 0:0:00| chol  1  1 
+	12|0.959|0.980|1.7e-10|4.8e-10|4.0e-03| 2.704909e+02  2.704869e+02| 0:0:00| chol  1  1 
+	13|0.993|1.000|1.0e-10|3.4e-11|2.4e-04| 2.704880e+02  2.704878e+02| 0:0:00| chol  1  1 
+	14|0.954|0.989|8.0e-11|2.1e-11|1.1e-05| 2.704879e+02  2.704879e+02| 0:0:00| chol  1  1 
+	15|1.000|1.000|1.7e-10|1.6e-11|1.0e-06| 2.704879e+02  2.704879e+02| 0:0:00|
+	stop: max(relative gap, infeasibilities) < 1.49e-08
+	-------------------------------------------------------------------
+	number of iterations   = 15
+	primal objective value =  2.70487886e+02
+	dual   objective value =  2.70487885e+02
+	gap := trace(XZ)       = 1.04e-06
+	relative gap           = 1.92e-09
+	actual relative gap    = 1.87e-09
+	rel. primal infeas (scaled problem)   = 1.72e-10
+	rel. dual     "        "       "      = 1.59e-11
+	rel. primal infeas (unscaled problem) = 0.00e+00
+	rel. dual     "        "       "      = 0.00e+00
+	norm(X), norm(y), norm(Z) = 8.9e+02, 2.2e+02, 1.4e+03
+	norm(A), norm(b), norm(C) = 2.2e+01, 3.0e+00, 7.5e+00
+	Total CPU time (secs)  = 0.45  
+	CPU time per iteration = 0.03  
+	termination code       =  0
+	DIMACS: 2.6e-10  0.0e+00  3.7e-11  0.0e+00  1.9e-09  1.9e-09
+	-------------------------------------------------------------------
+	
+	------------------------------------------------------------
+	Status: Solved
+	Optimal value (cvx_optval): -270.488
+	
+	
+	P_cvx =
+	
+	101.8040  -50.0081   -0.8792  117.2149
+	-50.0081   28.3481    2.3037  -57.6749
+	-0.8792    2.3037    4.1602    0.2983
+	117.2149  -57.6749    0.2983  136.1756
+	
+	
+	K_cvx =
+	
+	-4.7337    3.0098    1.0219   -6.7728
+	0.2527   -0.0799   -1.2428    0.2020
+	
+	
+	P_dare =
+	
+	101.8040  -50.0081   -0.8792  117.2149
+	-50.0081   28.3481    2.3037  -57.6749
+	-0.8792    2.3037    4.1602    0.2983
+	117.2149  -57.6749    0.2983  136.1756
+	
+	
+	K_dare =
+	
+	4.7337   -3.0098   -1.0219    6.7728
+	-0.2527    0.0799    1.2428   -0.2020
+	
+	
+	P_cvx =
+	
+	101.8040  -50.0081   -0.8792  117.2149
+	-50.0081   28.3481    2.3037  -57.6749
+	-0.8792    2.3037    4.1602    0.2983
+	117.2149  -57.6749    0.2983  136.1756
+	
+	
+	P_dare =
+	
+	101.8040  -50.0081   -0.8792  117.2149
+	-50.0081   28.3481    2.3037  -57.6749
+	-0.8792    2.3037    4.1602    0.2983
+	117.2149  -57.6749    0.2983  136.1756
+\end{Verbatim}
+
+
+
+%\newpage
+%\section*{}
+%\bibliographystyle{ieeetr}
+%\bibliography{mybib.bib}
+
 
 \end{document}

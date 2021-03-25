@@ -9,15 +9,18 @@
 \contentsline {subsubsection}{\numberline {0.3.1}Part a}{10}{subsubsection.0.3.1}%
 \contentsline {subsection}{\numberline {0.4}Problem 4.43}{11}{subsection.0.4}%
 \contentsline {subsubsection}{\numberline {0.4.1}Part a}{11}{subsubsection.0.4.1}%
-\contentsline {subsubsection}{\numberline {0.4.2}Part b}{12}{subsubsection.0.4.2}%
+\contentsline {subsubsection}{\numberline {0.4.2}Part b}{11}{subsubsection.0.4.2}%
 \contentsline {subsubsection}{\numberline {0.4.3}Part c}{12}{subsubsection.0.4.3}%
 \contentsline {section}{\numberline {1}Problem 1: Open-loop optimal control with $1-$ and $\infty -$ norms.}{13}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Linear program for $p = q = \infty $}{13}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Linear program for $p = q = 1$}{14}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}CVX Formulation and Results:}{14}{subsection.1.3}%
-\contentsline {section}{\numberline {2}Problem 2: Minimum time state transfer via quasiconvex optimization.}{15}{section.2}%
-\contentsline {section}{\numberline {3}Problem 3: State feedback control design via SDP}{16}{section.3}%
-\contentsline {section}{\numberline {A}MATLAB Code:}{17}{appendix.A}%
-\contentsline {section}{\numberline {B}Problem 3 MATLAB Code:}{18}{appendix.B}%
-\contentsline {section}{\numberline {C}Problem 3 MATLAB Code:}{19}{appendix.C}%
-\contentsline {section}{\numberline {D}Problem 3 MATLAB Code:}{20}{appendix.D}%
+\contentsline {subsection}{\numberline {1.3}CVX Formulation and Results:}{15}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}$\infty $-norm Solution}{15}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}1-norm Solution}{17}{subsubsection.1.3.2}%
+\contentsline {section}{\numberline {2}Problem 2: Minimum time state transfer via quasiconvex optimization.}{19}{section.2}%
+\contentsline {section}{\numberline {3}Problem 3: State feedback control design via SDP}{21}{section.3}%
+\contentsline {section}{\numberline {A}MATLAB Code:}{23}{appendix.A}%
+\contentsline {section}{\numberline {B}Problem 3 MATLAB Code:}{24}{appendix.B}%
+\contentsline {section}{\numberline {C}Problem 3 MATLAB Code:}{29}{appendix.C}%
+\contentsline {section}{\numberline {D}Problem 3 MATLAB Code:}{32}{appendix.D}%
+\contentsline {section}{\numberline {E}Problem 3 MATLAB Results:}{34}{appendix.E}%

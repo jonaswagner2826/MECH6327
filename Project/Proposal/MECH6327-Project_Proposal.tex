@@ -46,7 +46,7 @@ One notable downside, for our application, is the requirement for $\xi(t)$ to be
 \section{Project Objectives}
 The primary objective of this project will be to reproduce three joint state and parameter estimator methods for LPV systems then test the ability of each to react to malicious input and measurement interference. A secondary/future objective will be to calculate the reachability set and how it is manipulated due to an attack on the system.
 
-The three estimation methods of interest \footnote{taken directly from \cite{beelen2017joint} and we are essentially recreating these results but performing additional tests} include:
+The three estimation methods of interest\footnote{taken directly from \cite{beelen2017joint} and we are essentially recreating these results but performing additional tests} include:
 \begin{enumerate}
 	\item Dual-Estimation (DE) approach is a method that first solves a two step optimization problem for parameters-estimation and then uses a "traditional" robust polytopic observer design for state estimation. \cite{beelen2017joint}
 	\item Extended Kalman Filter (EKF) using prediction and update steps for the system estimates, but this version does require the assumption of Gaussian noise. \cite{beelen2017joint}
@@ -54,21 +54,21 @@ The three estimation methods of interest \footnote{taken directly from \cite{bee
 \end{enumerate}
 % Need to find access to \cite{bar2004estimation} for the IMM algorithm details...
 
-The primary attack methods for initial testing (for simplicity) will consist of malicious random gaussian noise being added to measurements. The power of these attacks can be classified into three catagories depending on the malicous noise power:
-\begin{enumerate}
-	\item Stealthy attacks: power of the attack is along the same level as the normal noise standard-deviation.
-	\item Unstealthy attacks: the attack is disruptive, yet detectable, with aims to degrade the system performance.
-	\item Super Unstealthy attack: a very considerable attack that aims to severely disrupt a system while not remaining undetectable.
-\end{enumerate}
+%The primary attack methods for initial testing (for simplicity) will consist of malicious random gaussian noise being added to measurements. The power of these attacks can be classified into three catagories depending on the malicous noise power:
+%\begin{enumerate}
+%	\item Stealthy attacks: power of the attack is along the same level as the normal noise standard-deviation.
+%	\item Unstealthy attacks: the attack is disruptive, yet detectable, with aims to degrade the system performance.
+%	\item Super Unstealthy attack: a very considerable attack that aims to severely disrupt a system while not remaining undetectable.
+%\end{enumerate}
 
-The secondary (or future) objective will be to show how much each attack method can effect the states (specifically the reachable set) for each estimator.\footnote{and potentially develop a better solution... modifying \cite{securestateestimation}?} This work is very similar to \cite{hashemi2018comparison} but will be expanding from stochastic DT-LTI systems to deterministic DT-LPV systems.
+The next objective will be to show how much each attack method can effect the states (specifically the reachable set) for each estimator.\footnote{and potentially develop a better solution... modifying \cite{securestateestimation}?} This work is very similar to \cite{hashemi2018comparison} but will be expanding from stochastic DT-LTI systems to deterministic DT-LPV systems.
 
 \section{Proposed Methods}
 The following steps will be taken to complete the problem.
 
 \begin{enumerate}
 	\item This project will begin by reproducing the results of joint state and parameter estimation from \cite{beelen2017joint} using the same LPV system used in the paper. (This will likely be done using Simulink with custom estimator blocks.)
-	\item The next step will be to introduce additional system noise (presumably to the scheduling parameters themselves) and measurement poise into the sensors. This will be important to do first and perform a separate analysis of each before malicious attacks are included.
+%	\item The next step will be to introduce additional system noise (presumably to the scheduling parameters themselves) and measurement poise into the sensors. This will be important to do first and perform a separate analysis of each before malicious attacks are included.
 	\item Next attacks will be introduced into the sensor and the response for each estimator will be compared.
 	\item This will then be expanded to a more interesting system\footnote{Seperator Testbed? scheduling parameters being valve on/off and for various linearized tank level systems... is it possible to analyze with a scheduling parameter dependent on a state???... Otherwise a more complicated electrical network w/ switches or pneumatic system could be done instead} that will be more useful for sensor attack testing (i.e. more sensors then states or high noise system).
 	\item Finally, an analysis of the reachable set deviation due to attacks will be performed by finding a minimal ellipsoid constraining the states that would be reachable prior to attack detection.\footnote{possibly future work}
