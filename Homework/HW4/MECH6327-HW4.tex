@@ -1,0 +1,162 @@
+\documentclass[letter]{article}
+\renewcommand{\baselinestretch}{1.25}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{physics}
+\usepackage{amsmath}
+\usepackage{graphicx}
+%\usepackage{pythonhighlight}
+\usepackage{hyperref}
+\usepackage{fancyvrb}
+
+% MATLAB Formating Code
+\usepackage[numbered,framed]{matlab-prettifier}
+\lstset{style=Matlab-editor,columns=fullflexible}
+\renewcommand{\lstlistingname}{Script}
+\newcommand{\scriptname}{\lstlistingname}
+
+% Command for easier minimization problem def
+\newcommand{\optpblm}[3][eq:default]{
+	\begin{equation}\label{#1}
+% Array method... more centered		
+%		\begin{array}{rl}
+%			\text{minimize}  \hspace{0.2in} &#2 \vspace{5pt}\\
+%			\text{subject to} \hspace{0.2in} &#3
+%		\end{array}
+% Aligned method... left aligned... idk if its better
+		\begin{aligned}
+			\text{minimize} \hspace{0.5in} &#2\vspace{5pt}\\
+			\text{subject to \hspace{0.5in}} &#3
+		\end{aligned}	
+	\end{equation}
+}
+
+\newcommand{\maxpblm}[3][eq:default]{
+	\begin{equation}\label{#1}
+		\begin{aligned}
+			\text{maximize} \hspace{0.5in} &#2\vspace{5pt}\\
+			\text{subject to \hspace{0.5in}} &#3
+		\end{aligned}	
+	\end{equation}
+}
+\allowdisplaybreaks
+
+\title{MECH 6327 - Homework 3}
+\author{Jonas Wagner}
+\date{2021, March 24}
+
+
+
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\tableofcontents
+
+\newpage
+\section*{BV Textobook Problems}
+\subsection{Problem 5.43}
+The dual a SOCP defined as:
+\optpblm{f^T x}{\norm{A_i x + b_i}_2 \leq c_i^T x + d_i, \ i = 1,\dots,m}
+with $x \in \real^n$ can be expressed as:
+\maxpblm{\sum_{i=1}^m \qty(b_i^T u_i - d_i v_i)}{
+	  \sum_{i=1}^m \qty(A_i^T u_i - c_i v_i) + f = 0\\
+	& \norm{u_i}_2 \leq v_i, \ i = 1,\dots,m}
+with variables $u_i \in \real^n_i$, $v_i \in \real, \ i=1,\dots,m$ and problem data $f\in \real^n, A_i \in \real^{n_i \cross n}, b_i \in \real^{n_i}, c_i \in \real, \ i = 1,\dots,m$.\\
+
+\subsubsection{Part a}
+\textbf{Problem:}
+Derive the dual by defining $y_i \in \real^{n_i}$ and $t_i \in \real$ and the inequalities $y_i = A_i x + b_i, \ t_i = c_i^T x + d_i$ then deriving the Lagrange dual.\\
+
+\noindent
+\textbf{Solution:}
+
+
+
+
+
+
+
+
+\subsubsection{Part b}
+\textbf{Problem:}
+Start with the conic formulation of the SOCP and use the conic dual to prove the equivelence. Use the fact that the secound-order dual is self-dual.\\
+
+\noindent
+\textbf{Solution:}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Problem 1: Robust control design}
+For the standard DT dynamical system defined as:
+\begin{equation}
+	x_{t+1} = A x_t + B u_t
+\end{equation}
+with dynamic matrix $A$ unknown but assumed to belong to a set:
+\begin{equation}
+	A \in \mathcal{A} = \text{conv}(A_1,\dots,A_m)
+\end{equation}
+with $A_i$ and $B$ known.\\
+
+
+\textbf{Problem:}
+For a state-feedback controller $u_t = K x_t$ use Lyapunov techniques to design it so the system is globally asymptotically stable (GAS) by solving a semi-definite program (SDP).\\
+
+\textbf{Solution:}
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Problem 2: Nonnegative and sum of squares polynomials}
+The Motzkin polynomial is defined as:
+\begin{equation}
+	M(x,y) = x^2 y^4 + x^4 y^2 + 1 - 3 x^2 y^2
+\end{equation}
+
+\textbf{Problem:}
+Show that the Motzkin polynomial is nonnegative but can be expressed as sum of squares. It is sufficient to show this using numerical and/or symbolic solvers.\\
+
+\textbf{Solution:}
+
+
+
+
+
+
+
+
+
+
+
+%\newpage
+%\appendix
+%\section{MATLAB Code:}\label{apx:matlab}
+%All code I write in this course can be found on my GitHub repository:\\
+%\href{https://github.com/jonaswagner2826/MECH6337}{https://github.com/jonaswagner2826/MECH6327}
+%\lstinputlisting[caption={MECH6327\_HW3},label={script:HW3}]{MECH6327_HW4.m}
+
+
+\end{document}
