@@ -41,9 +41,9 @@
 }
 \allowdisplaybreaks
 
-\title{MECH 6327 - Homework 3}
+\title{MECH 6327 - Homework 4}
 \author{Jonas Wagner}
-\date{2021, March 24}
+\date{2021, April 12}
 
 
 
@@ -66,40 +66,78 @@ with $x \in \real^n$ can be expressed as:
 	& \norm{u_i}_2 \leq v_i, \ i = 1,\dots,m}
 with variables $u_i \in \real^n_i$, $v_i \in \real, \ i=1,\dots,m$ and problem data $f\in \real^n, A_i \in \real^{n_i \cross n}, b_i \in \real^{n_i}, c_i \in \real, \ i = 1,\dots,m$.\\
 
+\newpage
 \subsubsection{Part a}
 \textbf{Problem:}
-Derive the dual by defining $y_i \in \real^{n_i}$ and $t_i \in \real$ and the inequalities $y_i = A_i x + b_i, \ t_i = c_i^T x + d_i$ then deriving the Lagrange dual.\\
+Derive the dual by defining $y_i \in \real^{n_i}$ and $t_i \in \real$ and the equalities $y_i = A_i x + b_i, \ t_i = c_i^T x + d_i$ then deriving the Lagrange dual.\\
 
 \noindent
 \textbf{Solution:}
+The problem can first be written in a standard form as:
+\optpblm{f^T}{
+	y_i = A_i x + b_i\\
+	&t_i = c_i^T x + d_i\\
+	&\norm{y_i}_2 \leq t_i, \ \forall i = 1, \dots, m}
 
+The lagrange can then be defined with
+\begin{align}
+	L(x,y,t, \lambda_i, \nu_i, \mu_i)
+	&= f^T 
+	+ \sum_{i=1}^m \lambda_i \qty(\norm{y_i}_2 - t_i)
+	+ \sum_{i=1}^m \mu_i^T (t_i - C_i x + d_i)\\
+	&= \qty(f + \sum_{i=1}^m \qty(A_i^T \mu_i - c_i \nu_i))^T x
+	+ \sum_{i=1}^m \lambda_i \norm{y_i}_2 + \mu_i^T y_i \nonumber\\
+	&\ \ \ + \sum_{i=1}^m \qty(-\lambda_i + \nu_i) t_i
+	- \qty(\sum_{i=1}^m b_i^T \mu_i - d_i \nu_i)
+\end{align}
 
+Since the definition of the dual optimization problem is to maximize $$g(\lambda_i, \nu_i, \mu_i) = \inf_{x,y_i,t_i} L(x,y,t, \lambda_i, \nu_i, \mu_i)$$ the $\inf$ can be found by determining when a min/max would occur for each of the variables.
 
+For the critical point on $x$ the direvative can be set to zero and thus the following equality must hold:
+\begin{equation}
+	f + \sum_{i=1}^m \qty(A_i^T \mu_i - c_i \nu_i) = 0
+\end{equation}
 
+For the $y_i$ related term, it is known $$\sum_{i=1}^m \lambda_i \norm{y_i}_2 + \mu_i^T y_i$$ will be bounded below if it is within the cone defined by $\lambda_i \norm{y_i}_2 \geq \norm{\mu_i}_2 y_i$ which can be rewritten as: $$\norm{\mu_i}_2 \leq \lambda_i$$
 
+For the critical point over $t_i$ the equality $\nu_i = \lambda_i$.
 
+From this the dual problem can be obtained when the quantity $\qty(\sum_{i=1}^m b_i^T \mu_i - d_i \nu_i)$ is maximized.
 
+Thus the dual problem is defined as:
+\maxpblm{\sum_{i=1}^m \qty(b_i^T u_i - d_i v_i)}{
+	\sum_{i=1}^m \qty(A_i^T u_i - c_i v_i) + f = 0\\
+	& \norm{u_i}_2 \leq v_i, \ i = 1,\dots,m}
 
+\newpage
 \subsubsection{Part b}
 \textbf{Problem:}
-Start with the conic formulation of the SOCP and use the conic dual to prove the equivelence. Use the fact that the secound-order dual is self-dual.\\
+Start with the conic formulation of the SOCP and use the conic dual to prove the equivalence. Use the fact that the second-order dual is self-dual.\\
 
 \noindent
 \textbf{Solution:}
+Starting with the SOCP given as
+\optpblm{f^T x}{\norm{A_i x + b_i}_2 \leq c_i^T x + d_i, \ i = 1,\dots,m}
+
+a standard form can be defined by
+\optpblm{f^T x}{\qty(A_i x + b_i, c_i^T x + d_i) \preceq_{2} 0}
 
 
+Since the conic dual transformation is known to transform
+\optpblm{f^T x}{- \qty(A^T x + b, c^T x + d) \preceq_{K} 0}
 
+into its dual according to its dual cone definition
+\maxpblm{b^T u + d \ v}{A^T u + v c = f\\ &(u,v) \succeq_{K^*} 0, \ i = 1,\dots,m}
 
+and from the fact that the 2-norm is self-dual, the dual program is given as
+\maxpblm{\sum_{i=1}^m \qty(b_i^T u_i - d_i v_i)}{
+	- \sum_{i=1}^m \qty(A_i^T u_i - c_i v_i) = f\\
+	& (u_i, v_i) \succeq_{2} 0, \ i = 1,\dots,m}
 
-
-
-
-
-
-
-
-
-
+or equivalently
+\maxpblm{\sum_{i=1}^m \qty(b_i^T u_i - d_i v_i)}{
+	\sum_{i=1}^m \qty(A_i^T u_i - c_i v_i) + f = 0\\
+	& \norm{u_i}_2 \leq v_i, \ i = 1,\dots,m}
 
 
 \newpage
@@ -119,14 +157,38 @@ with $A_i$ and $B$ known.\\
 For a state-feedback controller $u_t = K x_t$ use Lyapunov techniques to design it so the system is globally asymptotically stable (GAS) by solving a semi-definite program (SDP).\\
 
 \textbf{Solution:}
+The closed-loop system for the DT dynamical system can be defined by the dynamics
+\begin{equation}
+	x_{t+1} = \hat{A} x = (A + B K) x
+\end{equation}
+where $\hat{A} = A + B K$.
 
+In order for the closed-loop system to be Globally Asymptotically Stable, a quadratic Lyapnov Function could be used to prove that if the following inequality is true then the system is GAS:
+\begin{equation}
+	\hat{A}^T P \hat{A} - P \prec 0
+\end{equation}
 
+Since the system dynamics themselves are uncertain, this inequality will not be enough to prove GAS. This can be be address, however, by considering all $A \in \mathcal{A}$ to be a linear combination of the individual corner matrices. Since this is a convex hull, it is known that following this to its conclusion, GAS can be guaranteed for all $A \in \mathcal{A}$ if $A_i$ is GAS $\forall i = 1, \dots, m$.
 
+Following this, a stabalizing gain can then be found as follows:
+\begin{align}
+	\hat{A}_i^T P \hat{A}_i - P \prec 0
+\end{align}
+recognizing the Schur's compliment form, the following is true
+\begin{align}
+	\mqty[P & \hat{A}_i^T\\ \hat{A}_i P^{-1}] \succ 0\\
+	\mqty[P & (A_i + B K)^T\\ (A_i + B K) &P^{-1}] \succ 0
+\end{align}
 
-
-
-
-
+A SDP feasibility problem can then  be done to solve the problem such that
+\begin{equation}
+	\begin{aligned}
+		\mqty[P & \hat{A}_i^T\\ \hat{A}_i P^{-1}] \succ 0\\
+		B^{-1} \qty(\hat{A}_i - A_i) - K = 0, \ \forall i = 1, \dots, m
+	\end{aligned}
+\end{equation}
+with variables $P$, $\hat{A}_i$, and $K$, along with problem data $A_i$ and $B$.
+This is a problem that can now be easily implemented using CVX or YALMIP in MATLAB for given problem data.
 
 
 \newpage
@@ -140,6 +202,17 @@ The Motzkin polynomial is defined as:
 Show that the Motzkin polynomial is nonnegative but can be expressed as sum of squares. It is sufficient to show this using numerical and/or symbolic solvers.\\
 
 \textbf{Solution:}
+Nonegativity of the Motzkin polynomial can be proven using the AM-GM inequality using $n=3$ with $x^4y^2, x^2 y^4, 1$.
+\begin{align}
+	\sqrt[n]{\prod_{i=1}^{n} x_i} &\leq \frac{1}{n} \sum_{i=1}^n x_i\\
+	\sqrt[3]{(x^4 y^2)(x^2 y^4)(1)} &\leq \frac{1}{3} (x^4 y^2 + x^2 y^4 + 1)\\
+	x^2 y^2 &\leq \frac{1}{3} (x^4 y^2 + x^2 y^4 + 1)\\
+	3 x^2 y^2 &\leq x^4 y^2 + x^2 y^4 + 1\\
+	x^4 y^2 + x^2 y^4 + 1 - 3 x^2 y^2 &\geq 0
+\end{align}
+Therefore the Motzkin polynomial is non-negative.
+
+However, it is not possible to put this into sum of square form using the standard solver as demonstrated by the infeasability result from the solvesos() command in yalmip (shown in \appendixname \ref{apx:matlab})
 
 
 
@@ -150,13 +223,22 @@ Show that the Motzkin polynomial is nonnegative but can be expressed as sum of s
 
 
 
+\newpage
+\appendix
+\section{MATLAB Code:}\label{apx:matlab}
+All code I write in this course can be found on my GitHub repository:\\
+\href{https://github.com/jonaswagner2826/MECH6337}{https://github.com/jonaswagner2826/MECH6327}
+\lstinputlisting[caption={MECH6327\_HW4},label={script:HW4}]{MECH6327_HW4.m}
 
-%\newpage
-%\appendix
-%\section{MATLAB Code:}\label{apx:matlab}
-%All code I write in this course can be found on my GitHub repository:\\
-%\href{https://github.com/jonaswagner2826/MECH6337}{https://github.com/jonaswagner2826/MECH6327}
-%\lstinputlisting[caption={MECH6327\_HW3},label={script:HW3}]{MECH6327_HW4.m}
+
+
+\newpage
+\textbf{Refrences:} * not bibtex becouse of time...
+
+https://people.eecs.berkeley.edu/~elghaoui/Teaching/EE227A/lecture10.pdf
+
+https://people.orie.cornell.edu/miketodd/iccopt.pdf
+
 
 
 \end{document}

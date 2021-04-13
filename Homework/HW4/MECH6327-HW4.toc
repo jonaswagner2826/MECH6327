@@ -1,5 +1,6 @@
 \contentsline {subsection}{\numberline {0.1}Problem 5.43}{3}{subsection.0.1}%
-\contentsline {subsubsection}{\numberline {0.1.1}Part a}{3}{subsubsection.0.1.1}%
-\contentsline {subsubsection}{\numberline {0.1.2}Part b}{3}{subsubsection.0.1.2}%
-\contentsline {section}{\numberline {1}Problem 1: Robust control design}{4}{section.1}%
-\contentsline {section}{\numberline {2}Problem 2: Nonnegative and sum of squares polynomials}{5}{section.2}%
+\contentsline {subsubsection}{\numberline {0.1.1}Part a}{4}{subsubsection.0.1.1}%
+\contentsline {subsubsection}{\numberline {0.1.2}Part b}{5}{subsubsection.0.1.2}%
+\contentsline {section}{\numberline {1}Problem 1: Robust control design}{6}{section.1}%
+\contentsline {section}{\numberline {2}Problem 2: Nonnegative and sum of squares polynomials}{7}{section.2}%
+\contentsline {section}{\numberline {A}MATLAB Code:}{8}{appendix.A}%

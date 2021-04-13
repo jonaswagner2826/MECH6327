@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.3.6)  12 APR 2021 11:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.11) (preloaded format=pdflatex 2021.3.6)  13 APR 2021 12:09
 entering extended mode
 **./MECH6327-HW4.tex
 (MECH6327-HW4.tex
@@ -355,6 +355,30 @@ LaTeX Warning: Unused global option(s):
 
 LaTeX Warning: Label `eq:default' multiply defined.
 
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
+
+LaTeX Warning: Label `eq:default' multiply defined.
+
 )
 \openout1 = `MECH6327-HW4.aux'.
 
@@ -467,46 +491,49 @@ Underfull \hbox (badness 10000) in paragraph at lines 66--68
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 70--72
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 84--86
-
- []
-
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 114--116
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 118--120
+Underfull \hbox (badness 10000) in paragraph at lines 71--73
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 139--141
+Underfull \hbox (badness 10000) in paragraph at lines 114--116
 
  []
 
-[5] (MECH6327-HW4.aux)
+[5]
+Underfull \hbox (badness 10000) in paragraph at lines 152--154
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--158
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 201--203
+
+ []
+
+[7]
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 231.
+ (MECH6327_HW4.m) [8] [9] (MECH6327-HW4.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `MECH6327-HW4.out' has not changed.
-(rerunfilecheck)             Checksum: 3A58EC54EEB4B9FCAA19142E02B5A5CD;855.
+(rerunfilecheck)             Checksum: 501A61A090BF801C922E20A107A3D2DA;962.
  ) 
 Here is how much of TeX's memory you used:
- 11831 strings out of 479337
- 172400 string characters out of 2857148
- 491591 words of memory out of 3000000
- 29120 multiletter control sequences out of 15000+200000
- 411262 words of font info for 54 fonts, out of 3000000 for 9000
+ 12208 strings out of 479337
+ 175869 string characters out of 2857148
+ 677190 words of memory out of 3000000
+ 29435 multiletter control sequences out of 15000+200000
+ 411430 words of font info for 55 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 82i,9n,89p,378b,328s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 82i,17n,89p,434b,1259s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cme
 xtra/cmbsy7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmbx10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/ty
@@ -519,11 +546,15 @@ onas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:
 /Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12
 .pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
 cm/cmr17.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmsy10.pfb>
-Output written on MECH6327-HW4.pdf (5 pages, 140153 bytes).
+msfonts/cm/cmr5.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr7.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Jonas/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Users/Jonas/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/Jonas/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on MECH6327-HW4.pdf (9 pages, 211784 bytes).
 PDF statistics:
- 111 PDF objects out of 1000 (max. 8388607)
- 18 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 217 PDF objects out of 1000 (max. 8388607)
+ 75 named destinations out of 1000 (max. 500000)
+ 49 words of extra memory for PDF output out of 10000 (max. 10000000)
 
