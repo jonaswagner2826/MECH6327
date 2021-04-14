@@ -1,0 +1,48 @@
+Standard state-space:
+x(t+1) = A x(t) + B u(t)
+y(t) = C x(t) + D u(t)
+
+I/O Subspace method
+Y = OX + HU
+- U, Y... block Hankel ??
+- O observability... H based on sys matrixs
+- X is the sequence of states
+- The method uses SVD on projected output matrix and computes system realization... but loses Hankel structure???
+
+Alternative: nuclear norm
+- convex huristic
+min \norm{YQ}_* + \rho \sum_t \nomr{y(t) - y_m(t)}_2^2
+- Q is bases of U nullspace
+- \rho > 0
+- Y is hankel constructed from y(t) outputs
+- Then uses SDP to solve
+
+Graphical models:
+-stats things... but issues with topology ?
+- use 1-norm penalty:
+minimize \trace{CX} − \log \det{X} + \rho \norm{X}_1
+- X is invers cov matrix (\Sigma^-1)
+- C is sample covairance matrix
+
+- Topology based on sparcity pattern of S(\omega)
+S(\omega) = \sum_{k=-\infty}^\infty R_k e^{jk\omega}
+with R_k = E[ x(t+k) x(t)^T]
+
+Autoregresive models:??
+x(t) = - \sum_{k=1}^p A_k x(t-k) + v(t), v(t) ~ \mathcal{N}(0,\Sigma)
+
+leads to:
+minimize \trace{CX} − \log \det{X_{00}} + \rho h(x)
+subject to X \succeq 0
+
+X is (p+1)x(p+1) block matrix of blocks (nxn)
+X_{00} leading block of X\
+h(X) choosen to encourage a common, symmetric sparsity pattern for the
+diagonal sums....
+
+
+Then... Algorithms for other problems...
+4.1: Interior point algorithms
+4.2: Nonlinear optimization methods
+4.3: Proximal gradient algorithms
+4.4: Alternating Direction Method of Multipliers (ADMM)
