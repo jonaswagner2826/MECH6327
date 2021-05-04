@@ -1,0 +1,13 @@
+\contentsline {section}{\numberline {1}Control Design via SDP}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}$\mathcal {H}_2$-norm}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}$\mathcal {H}_\infty $-norm}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Model Predictive Control (MPC)}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}LQR Implementation}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}MPC Implementation}{5}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}$T_h = 10$}{5}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}$T_h = 5$}{5}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}$T-h = 3$}{5}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}$T-h = 20$}{5}{subsubsection.2.2.4}%
+\contentsline {section}{\numberline {A}MATLAB Code:}{10}{appendix.A}%
+\contentsline {subsection}{\numberline {A.1}Problem 1 Code}{11}{subsection.A.1}%
+\contentsline {subsection}{\numberline {A.2}Problem 2 Code}{13}{subsection.A.2}%

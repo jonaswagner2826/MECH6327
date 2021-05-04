@@ -2,7 +2,6 @@
 % Author: Jonas Wagner
 % Date: 2020-05-02
 
-clc;
 clear;
 close all;
 
@@ -214,8 +213,9 @@ plot(-u_limit*ones(N,1),'r')
 title('U')
 
 subplot(1,2,2)
-stairs(diff(U_sat_LQR'))
+stairs(diff(U_LQR'))
 hold on
+stairs(diff(U_sat_LQR'))
 plot(u_rate_limit*ones(N,1), 'r')
 plot(-u_rate_limit*ones(N,1), 'r')
 title('U Rate')
@@ -236,6 +236,8 @@ for i = 1:4
     end
     title(['State X',num2str(i)])
 end
+saveas(gcf,[pwd,'\Homework\HW5\fig\pblm2_MPC_T',num2str(T),...
+    '_sys_response.png'])
 
 figure('position',[0,0,1200,500])
 sgtitle(['MPC Method Control Signal T = ',num2str(T)])
@@ -245,8 +247,7 @@ hold on
 plot(u_limit*ones(N,1),'r')
 plot(-u_limit*ones(N,1),'r')
 title('U')
-saveas(gcf,[pwd,'\Homework\HW5\fig\pblm2_MPC_T',num2str(T),...
-    '_sys_response.png'])
+
 
 subplot(1,2,2)
 stairs(diff(U_MPC'))

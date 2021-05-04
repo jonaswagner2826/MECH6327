@@ -2,7 +2,6 @@
 % Author: Jonas Wagner
 % Date: 2020-05-02
 
-clc;
 clear;
 close all;
 
