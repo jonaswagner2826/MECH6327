@@ -42,7 +42,38 @@ diagonal sums....
 
 
 Then... Algorithms for other problems...
-4.1: Interior point algorithms
-4.2: Nonlinear optimization methods
+
+
+
+**Jonas** 4.1: Interior point algorithms
+
+- I think it is similar to the process of restructuring a problem in epigraph form (or similar substitution)
+- 1- and nuclear-norm are given as examples, but references a chapter from a book with a lot of examples
+(if we want more about this the book is a good reference... have it saved)
+- nuclear-norm example paper walks through interior-point implimentation specific to the nuclear-norm in two methods... not sure how useful it would be to explain in-depth (especially the complicated one)
+- These algorithms are all built around the idea of using the structure of a problem and essentially only solving with the non-zero parts of it... and is really about computational efficiency
+
+- The paper walks through the exact formulation of the problem and demonstrates experimental results
+
+
+**Jonas** 4.2: Nonlinear optimization methods
+
+- The methods outlined simply in the paper is a main resutl
+See the papers for the equations... and proof... a bit too detailed for a presentation
+
+-Nuclear norm solution explained in the other paper
+
+
+
+
+
+
+
+
+
+
+
+
+
 4.3: Proximal gradient algorithms
 4.4: Alternating Direction Method of Multipliers (ADMM)

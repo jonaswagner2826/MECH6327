@@ -1,0 +1,135 @@
+% MECH 6327 - Homework 5 - Problem 1
+% Author: Jonas Wagner
+% Date: 2020-05-02
+
+clc;
+clear;
+close all;
+
+
+h2norm = false;
+hinftynorm = true;
+
+
+
+%% System Setup
+MECH6327_HW5_sys_def
+n = size(A,1);
+p = size(B,2);
+q = size(C,1);
+
+if h2norm
+%% H-2 Norm Control
+tol = 1e-6;
+cvx_begin sdp
+    variable X(n,n) symmetric
+    variable W(q,q) symmetric
+    variable L(1,n)
+    variable gamma_1
+    minimize gamma_1
+    subject to
+        [W, C*X+D*L;
+         X*C'+L'*D', X] >= 0
+        A*X + X*A' + B*L + L'*B' + F*F' <= 0
+        trace(W) < gamma_1
+        X >= tol * eye(n)
+        W >= tol * eye(q)
+cvx_end
+
+K_ = L*inv(X)
+H2_norm = sqrt(gamma_1)
+
+
+% % Yalmip Attempt-------------------------------------------
+% % sdpvar def
+% X = sdpvar(n);
+% K = sdpvar(p,n);
+% W = sdpvar(q);
+% sdpvar gamma;
+% 
+% L = K * X;
+% 
+% % Define the constraints
+% Constraints = [X >= 1e-5*eye(n)];
+% Constraints = [Constraints; W >= 1e-5*eye(q)];
+% Constraints = [Constraints; A*X + B*L + X*A' + L'*B' + F*F' <= -1e-5*eye(n)];
+% Constraints = [Constraints; [W, C*X+D*L;
+%                              X*C'+L'*D', X] >=  1e-5*eye(n+q)];
+% Constraints = [Constraints; trace(W)<=gamma];
+% 
+% % Solve the problem
+% optimize(Constraints,gamma);
+% 
+% % Extract the minimum H2 norm
+% gamma = value(gamma)
+% 
+% % Solution that attains the minimum H2 norm
+% X = value(X)
+% L = value(L)
+% 
+% % K gain solution
+% K = L * inv(X)
+end
+
+
+if hinftynorm
+%% H-infty Norm Control
+cvx_begin sdp quiet
+    variable Q(n,n) symmetric
+    variable L(p,n)
+    variable eta
+    
+    minimize eta
+    subject to 
+        [Q*A'+L'*B'+A*Q+B*L F Q*C'+L'*D';
+         F'  -eta zeros(1,3);
+         C*Q+D*L zeros(3,1) (-1)*eye(3,3)] <= 0
+        Q >= 0
+
+cvx_end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% % Yalmip Attempt-------------------------------------------
+% % sdpvar def
+% Q = sdpvar(n);
+% L = sdpvar(p,n);
+% sdpvar eta;
+% 
+% % Define the constraints
+% Constraints = [Q>=1e-5*eye(n)];
+% Constraints = [Constraints;
+%     [Q*A' + L'*B' + A*Q + B*L, F, Q*C' + L'*D';
+%     F', -eta, zeros(1,q);
+%     C*Q + D*L, zeros(q,1), -eye(q)]>=1e-5*eye(n+q+1)];
+% 
+% % Solve the problem
+% % options = sdpsettings('solver','sdplr','verbose',1,'debug',1);
+% optimize(Constraints,eta);
+% 
+% % Optimization Results
+% Q = value(Q)
+% L = value(L)
+% % Minimum P value
+% P = inv(Q)
+% 
+% % Minimum H-infty norm
+% eta = value(eta)
+% 
+% % Minimum K value
+% K = L*inv(Q)
+
+end
